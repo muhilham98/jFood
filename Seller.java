@@ -12,16 +12,17 @@ public class Seller
     private String name;
     private String email;
     private String phoneNumber;
+    private Location location;
 
     /**
      * Constructor for objects of class Seller
      */
-    public Seller()
+    public Seller(int id, String name, String email,String phoneNumber, Location location)
     {
-        id = 0;
-        name = "oke";
-        email = "oke";
-        phoneNumber = "oke";
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.location = location;
     }
 
     /**
@@ -51,22 +52,35 @@ public class Seller
         return phoneNumber;
     }
     
-    public void setId(int newId)
+    public Location getLocation()
     {
-        this.id = newId;
+        return location;
     }
     
-    public void setName(String newName)
+    public void setId(int Id)
     {
-        this.name = newName;
+        this.id = Id;
     }
     
-    public void setEmail(String newEmail)
+    public void setName(String name)
     {
-        this.email = newEmail;
+        this.name = name;
     }
-    public void setPhoneNumber(String newPhoneNumber)
+    
+    public void setEmail(String email)
     {
-        this.phoneNumber = newPhoneNumber;
+        this.email = email;
+    }
+    public void setPhoneNumber(String phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
+    }
+    public void setLocation (Location location)
+    {
+        this.location = location;
+    }
+    public void printData ()
+    {
+        System.out.println(getName());
     }
 }

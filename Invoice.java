@@ -12,16 +12,17 @@ public class Invoice
     private int idFood;
     private String date;
     private int totalPrice;
+    private Customer customer;
 
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice()
+    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice)
     {
-        id = 0;
-        idFood = 0;
-        date = "oke";
-        totalPrice = 0;
+        this.id = id;
+        this.idFood = idFood;
+        this.customer = customer;
+        this.totalPrice = totalPrice;
     }
 
     /**
@@ -50,24 +51,37 @@ public class Invoice
         return totalPrice;
     }
     
-    public void setId(int idNew)
+    public Customer getCustomer()
     {
-        this.id = idNew;
+        return customer;
     }
     
-    public void setIdFoods(int newIdFood)
+    public void setId(int id)
     {
-        this.idFood = newIdFood;
+        this.id = id;
     }
     
-    public void setDate(String newDate)
+    public void setIdFood(int idFood)
     {
-        this.date = newDate;
+        this.idFood = idFood;
     }
     
-    public void setTotalPrice(int newTotalPrice)
+    public void setDate(String date)
     {
-        this.totalPrice = newTotalPrice;
+        this.date = date;
+    }
+    
+    public void setTotalPrice(int totalPrice)
+    {
+        this.totalPrice = totalPrice;
+    }
+    public void setCustomer (Customer customer)
+    {
+        this.customer = customer;
+    }
+    public void printData()
+    {
+        
     }
     
 }

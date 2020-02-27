@@ -17,7 +17,7 @@ public class Customer
     /**
      * Constructor for objects of class Customer
      */
-    public Customer()
+    public Customer(int id, String name, String email, String password, String joinDate)
     {
         id = 0;
         name = "oke";
@@ -80,6 +80,11 @@ public class Customer
     public void setJoinDate(String joinDateNew)
     {
         this.joinDate = joinDateNew;
+    }
+    
+    public void printData()
+    {
+        System.out.println(getName());
     }
     
 }
