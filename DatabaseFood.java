@@ -1,17 +1,18 @@
 
 /**
- * Write a description of class DatabaseFood here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * <h1>JFood Program based on Object Oriented Programming<h1>
+ * This DatabaseFood Class used to precessing database food data
+ * <p>
+ * @author Muhammad Ilham Akbar
+ * @version 2020-02-27
  */
 public class DatabaseFood
 {
-    // instance variables - replace the example below with your own
+    // Instance variables in Seller Class
     private String[] listFood;
 
     /**
-     * Constructor for objects of class DatabaseFood
+     * This is constructor for object of class DataBase
      */
     public DatabaseFood()
     {
@@ -19,10 +20,9 @@ public class DatabaseFood
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * This is addFood method that used to return true value
+     * @param food, parameter to add food to database
+     * @return true, boolen return
      */
     public boolean addFood(Food food)
     {
@@ -30,11 +30,19 @@ public class DatabaseFood
         return true;
     }
     
+    /**
+     * This is removeFood method that used to return true value
+     * @param food, parameter to remove food
+     * @return true, boolen return
+     */
     public boolean removeFood(Food food)
     {
         return true;
     }
-    
+    /**
+     * This is removeFood method that used to return true value
+     * @return listFood, to display list of food
+     */
     public String[] getListFood()
     {
         return listFood;
