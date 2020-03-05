@@ -9,7 +9,7 @@
 public class DatabaseFood
 {
     // Instance variables in Seller Class
-    private String[] listFood;
+    private static String[] listFood;
 
     /**
      * This is constructor for object of class DataBase
@@ -24,7 +24,7 @@ public class DatabaseFood
      * @param food, parameter to add food to database
      * @return true, boolen return
      */
-    public boolean addFood(Food food)
+    public static boolean addFood(Food food)
     {
         // put your code here
         return true;
@@ -35,7 +35,7 @@ public class DatabaseFood
      * @param food, parameter to remove food
      * @return true, boolen return
      */
-    public boolean removeFood(Food food)
+    public static boolean removeFood(Food food)
     {
         return true;
     }
@@ -43,7 +43,7 @@ public class DatabaseFood
      * This is removeFood method that used to return true value
      * @return listFood, to display list of food
      */
-    public String[] getListFood()
+    public static String[] getListFood()
     {
         return listFood;
     }

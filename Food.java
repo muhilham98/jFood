@@ -13,7 +13,7 @@ public class Food
     private String name; // Food name 
     private Seller seller; // who is seller
     private int price; // Food price
-    private String category; // Food category
+    private FoodCategory category; // Food category
 
     /**
      * This is constructor for object of class Food
@@ -25,12 +25,13 @@ public class Food
      * @param price - fourth parameter value of constructor, which becomes food price
      * @param category - fifth parameter value of constructor, where is food category
      */
-    public Food(int id, String name, Seller seller, int price, String category)
+    public Food(int id, String name, Seller seller, int price, FoodCategory category)
     {
         this.id = id;
         this.name = name;
         this.price = price;
         this.category = category;
+        this.seller = seller;
     }
 
     /**
@@ -73,7 +74,7 @@ public class Food
      * This is getCategory method that used to return category value
      * @return category, return category value
      */
-    public String getCategory()
+    public FoodCategory getCategory()
     {
         return category;
     }
@@ -118,7 +119,7 @@ public class Food
      * This is setCategory method that used to set category value, that category is instance variable
      * @param category, set category value in string
      */
-    public void setCategory (String category)
+    public void setCategory (FoodCategory category)
     {
         this.category = category;
     }
@@ -128,7 +129,13 @@ public class Food
      */
     public void printData ()
     {
-       System.out.println(getName()); 
+       System.out.println("=========FOOD=======");
+       System.out.println("ID: " + getId());
+       System.out.println("Name: " + getName());
+       System.out.println("Seller: " + seller.getName());
+       System.out.println("City: " + seller.getLocation().getCity());
+       System.out.println("Price: " + getPrice());
+       System.out.println("Category: " + getCategory());
     }
     
 }
