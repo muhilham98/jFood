@@ -14,6 +14,8 @@ public class Invoice
     private String date;//invoice date
     private int totalPrice;//invoice total price value
     private Customer customer;
+    private PaymentType paymentType;
+    private InvoiceStatus status;
 
     /**
      * This is constructor for object of class Invoice
@@ -25,12 +27,15 @@ public class Invoice
      * @param customer - fourth parameter value of constructor, who received the invoice
      * @param totalPrice - fifth paramter value of constructor, total price value at that invoice
      */
-    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice)
+    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice, InvoiceStatus status)
     {
         this.id = id;
         this.idFood = idFood;
+        this.date= date;
         this.customer = customer;
         this.totalPrice = totalPrice;
+        this.status = status;
+        
     }
 
     /**
@@ -78,6 +83,15 @@ public class Invoice
         return customer;
     }
     
+    public PaymentType getPaymentType()
+    {
+        return paymentType;
+    }
+    
+    public InvoiceStatus getInvoiceStatus() 
+    {
+        return status;
+    }
     /**
      * This is setId method that used to set id value, that id is instance variable
      * @param id, set id in integer
@@ -122,13 +136,27 @@ public class Invoice
     {
         this.customer = customer;
     }
+    public void setPaymentType (PaymentType paymentType)
+    {
+        this.paymentType = paymentType;
+    }
     
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.status = status;
+    }
     /**
      * This is printData method that used to print data
      */
     public void printData()
     {
-         System.out.println(getTotalPrice());
+       System.out.println("=========INVOICE=======");
+       System.out.println("ID: " + getId());
+       System.out.println("Food ID: " + getIdFood());
+       System.out.println("Date: " + getDate());
+       System.out.println("Costumer: " + customer.getName());
+       System.out.println("Total Price: " + getTotalPrice());
+       System.out.println("Status: " + getInvoiceStatus());
     }
     
 }

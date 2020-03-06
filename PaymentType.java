@@ -10,16 +10,16 @@ public enum PaymentType
     Cashless ("Cashless"), 
     Cash("Cash");
     
-    private String typePayment;
+    private String payment;
     
-    private PaymentType (String typePayment)
+    private PaymentType (String payment)
     {
-        this.typePayment = typePayment;
+        this.payment = payment;
     }
     
-    public String toSring()
+    public String toString()
     {
-        return typePayment;
+        return payment;
     }
     
     
