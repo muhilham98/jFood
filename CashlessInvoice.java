@@ -61,21 +61,25 @@ public class CashlessInvoice extends Invoice
     public void printData()
     {
         if (getPromo() == null || promo.getActive() == false ||getFood().getPrice()<promo.getMinPrice()){
-            System.out.println(getId());
-            System.out.println(getFood().getName());
-            System.out.println(getDate());
-            System.out.println(totalPrice);
-            System.out.println(getCustomer().getName());
-            System.out.println(getInvoiceStatus());
+            System.out.println("============INOVOICE===========");
+            System.out.println("ID       : " + getId());
+            System.out.println("Food     : " + getFood().getName());
+            System.out.println("Date     : " + getDate());
+            System.out.println("Costumer : " + getCustomer().getName());
+            System.out.println("Total Price : " + totalPrice);
+            System.out.println("Status : " + getInvoiceStatus());
+            System.out.println("Payment Type : "+ PAYMENT_TYPE);
         }
         else{
-            System.out.println(getId());
-            System.out.println(getFood().getName());
-            System.out.println(getDate());
-            System.out.println(totalPrice);
-            System.out.println(getCustomer().getName());
-            System.out.println(getInvoiceStatus());
-            System.out.println(promo.getCode());
+            System.out.println("============INOVOICE===========");
+            System.out.println("ID       : " + getId());
+            System.out.println("Food     : " + getFood().getName());
+            System.out.println("Date     : " + getDate());
+            System.out.println("Costumer : " + getCustomer().getName());
+            System.out.println("Promo : " + promo.getCode());
+            System.out.println("Total Price : " + totalPrice);
+            System.out.println("Status : " + getInvoiceStatus());
+            System.out.println("Payment Type : "+ PAYMENT_TYPE);
         }
     }
     
