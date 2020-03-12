@@ -18,7 +18,7 @@ public enum InvoiceStatus
         this.status = status;
     }
     
-    public String toSring()
+    public String toString()
     {
         return status;
     }

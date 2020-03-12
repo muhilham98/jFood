@@ -7,8 +7,8 @@
  */
 public enum PaymentType
 {
-    Cashless ("Cashless"), 
-    Cash("Cash");
+    CASHLESS ("Cashless"), 
+    CASH ("Cash");
     
     private String payment;
     

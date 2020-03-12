@@ -6,16 +6,22 @@
  * @author Muhammad Ilham Akbar
  * @version 2020-02-27
  */
-public class Invoice
+public abstract class Invoice
 {
     // Instance variables in Invoice Class
-    private int id;//invoice id
-    private int idFood;//invoice idFood
-    private String date;//invoice date
-    private int totalPrice;//invoice total price value
+    //private int id;//invoice id
+    //private int idFood;//invoice idFood
+    //private String date;//invoice date
+    //private int totalPrice;//invoice total price value
+    //private Customer customer;
+    //private PaymentType paymentType;
+    //private InvoiceStatus status;
+    private int id;
+    private Food food;
+    private String date;
+    protected int totalPrice;
     private Customer customer;
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+    private InvoiceStatus invoiceStatus;
 
     /**
      * This is constructor for object of class Invoice
@@ -27,14 +33,13 @@ public class Invoice
      * @param customer - fourth parameter value of constructor, who received the invoice
      * @param totalPrice - fifth paramter value of constructor, total price value at that invoice
      */
-    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice, InvoiceStatus status)
+    public Invoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
     {
         this.id = id;
-        this.idFood = idFood;
+        this.food = food;
         this.date= date;
         this.customer = customer;
-        this.totalPrice = totalPrice;
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
         
     }
 
@@ -51,9 +56,9 @@ public class Invoice
      * This is getIdFood method that used to return id value
      * @return idFood, return idFood value
      */
-    public int getIdFood()
+    public Food getFood()
     {
-        return idFood;
+        return food;
     }
     
     /**
@@ -83,14 +88,11 @@ public class Invoice
         return customer;
     }
     
-    public PaymentType getPaymentType()
-    {
-        return paymentType;
-    }
+    public abstract PaymentType getPaymentType();
     
     public InvoiceStatus getInvoiceStatus() 
     {
-        return status;
+        return invoiceStatus;
     }
     /**
      * This is setId method that used to set id value, that id is instance variable
@@ -105,9 +107,9 @@ public class Invoice
      * This is setIdFood method that used to set idFood value, that idFood is instance variable
      * @param idFood, set idFood in integer
      */
-    public void setIdFood(int idFood)
+    public void setFood(Food food)
     {
-        this.idFood = idFood;
+        this.food = food;
     }
     
     /**
@@ -123,10 +125,7 @@ public class Invoice
      * This is setTotalPrice method that used to set totalPrice value, that totalPrice is instance variable
      * @param totalPrice, set total price in integer
      */
-    public void setTotalPrice(int totalPrice)
-    {
-        this.totalPrice = totalPrice;
-    }
+    public abstract void setTotalPrice();
     
     /**
      * This is setCustomer method that used to set customer value, that customer is instance variable
@@ -136,27 +135,18 @@ public class Invoice
     {
         this.customer = customer;
     }
-    public void setPaymentType (PaymentType paymentType)
-    {
-        this.paymentType = paymentType;
-    }
+    //public void setPaymentType (PaymentType paymentType)
+    //{
+      //  this.paymentType = paymentType;
+    //}
     
-    public void setInvoiceStatus(InvoiceStatus status)
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     /**
      * This is printData method that used to print data
      */
-    public void printData()
-    {
-       System.out.println("=========INVOICE=======");
-       System.out.println("ID: " + getId());
-       System.out.println("Food ID: " + getIdFood());
-       System.out.println("Date: " + getDate());
-       System.out.println("Costumer: " + customer.getName());
-       System.out.println("Total Price: " + getTotalPrice());
-       System.out.println("Status: " + getInvoiceStatus());
-    }
+    public abstract void printData();
     
 }
