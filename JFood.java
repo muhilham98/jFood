@@ -51,12 +51,21 @@ public class JFood
        CashlessInvoice invoice2 = new  CashlessInvoice (1, food2, "2020-01-01", customer2, InvoiceStatus.ONGOING, promo2);
        CashlessInvoice invoice3 = new  CashlessInvoice (1, food3, "2020-01-01", customer2, InvoiceStatus.ONGOING, promo2);
        
-       invoice1.setTotalPrice();
-       invoice2.setTotalPrice();
-       invoice3.setTotalPrice();
-       invoice1.printData();
-       invoice2.printData();
-       invoice3.printData();
+       //invoice1.setTotalPrice();
+       //invoice2.setTotalPrice();
+       //invoice3.setTotalPrice();
+       //invoice1.printData();
+       //invoice2.printData();
+       //invoice3.printData();
+       
+       CashInvoice  invoice4 = new  CashInvoice(4, food1, "3/3/2020", customer2, InvoiceStatus.FINISHED);
+       CashInvoice  invoice5 = new  CashInvoice(5, food2, "3/3/2020", customer2, InvoiceStatus.FINISHED, 10000);
+       
+       invoice4.setTotalPrice();
+       invoice5.setTotalPrice();
+       invoice4.printData();
+       invoice5.printData();
+       
        
        
         
