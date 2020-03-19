@@ -78,8 +78,8 @@ public class Location
     /**
      * This is printData method that used to print getProvince()
      */
-    public void printData()
+    public String toString()
     {
-        System.out.println(getProvince());
+        return "CUSTOMER\nProvince: "+province+"\nDescription: "+description+"\nCity: "+city;
     }
 }

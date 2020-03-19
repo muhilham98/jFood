@@ -1,4 +1,6 @@
-
+import java.util.*;
+import java.util.regex.*;
+import java.text.SimpleDateFormat;
 /**
  * <h1>JFood Program based on Object Oriented Programming<h1>
  * This Costumer Class used to precessing costumer data
@@ -13,7 +15,7 @@ public class Customer
     private String name; // Customer name
     private String email; // Customer email
     private String password; // Customer password 
-    private String joinDate;  // Customer joinDate
+    private Calendar joinDate;  // Customer joinDate
 
     /**
      * This is constructor for object of class Customer 
@@ -25,13 +27,31 @@ public class Customer
      * @param password - fourth parameter value of constructor, which becomes costumer password
      * @param joinDate - fifth paramter value of constructor, display costumer join date
      */
-    public Customer(int id, String name, String email, String password, String joinDate)
+    public Customer(int id, String name, String email, String password, Calendar joinDate)
     {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.joinDate = joinDate;
+    }
+    
+    public Customer(int id, String name, String email, String password, int year, int month, int dayOfMonth)
+    {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.joinDate = new GregorianCalendar(year,month-1,dayOfMonth);
+        
+    }
+    
+    public Customer (int id, String name, String email, String password)
+    {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     /**
@@ -74,7 +94,7 @@ public class Customer
      * This is getJoinDtae method that used to return joinDate value
      * @return joinDate, return join date value
      */
-    public String getJoinDate()
+    public Calendar getJoinDate()
     {
         return joinDate;
     }
@@ -103,7 +123,19 @@ public class Customer
      */
     public void setEmail(String email)
     {
-        this.email = email;
+        String pattern =  "^[a-zA-Z0-9_+&*-]+(?:\\."+  
+                            "[a-zA-Z0-9_+&*-]+)*@" +  
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" +  
+                            "A-Z]{2,7}$";
+        Pattern a = Pattern.compile(pattern);
+        Matcher b = a.matcher(email);
+        if (!b.find()) {
+            System.out.println("Email : NULL");
+            this.email = "NULL";
+        } else {
+            System.out.println("Email : " + b.group());
+            this.email = email;
+        }
     }
     
     /**
@@ -112,24 +144,39 @@ public class Customer
      */
     public void setPassword(String password)
     {
-        this.password = password;
+        String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+        Pattern a = Pattern.compile(pattern);
+        Matcher b = a.matcher(password);
+        if(!b.find()){
+            System.out.println("Password: NULL");
+            this.password = "NULL";
+        }else{
+           System.out.println("Password: " + b.group());
+            this.password = password;
+        }
     }
     
     /**
      * This is setJoinDate method that used to set password value, that password is instance variable
      * @param joinDate, set join date value in string
      */
-    public void setJoinDate(String joinDate)
+    public void setJoinDate(Calendar joinDate)
     {
         this.joinDate = joinDate;
     }
     
+    public void setJoinDate (int year, int month, int dayOfMonth)
+    {
+        this.joinDate = new GregorianCalendar (year, month-1, dayOfMonth);
+    }
     /**
      * This is printData method that used to print getName()
      */
-    public void printData()
+    
+    public String toString()
     {
-        System.out.println(getName());
+        return "CUSTOMER\nId: "+id+"\nName: "+name+"\nEmail: "+email+"\nPassword: "+password+"/nJoin Date: "+joinDate;
     }
+    
     
 }

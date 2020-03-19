@@ -20,6 +20,6 @@ comment6.params=city
 comment6.target=void\ setCity(java.lang.String)
 comment6.text=\r\n\ This\ is\ setCity\ method\ that\ used\ to\ set\ city\ value,\ that\ city\ is\ instance\ variable\r\n\ @param\ city,\ set\ city\ location\ in\ stirng\r\n
 comment7.params=
-comment7.target=void\ printData()
+comment7.target=java.lang.String\ toString()
 comment7.text=\r\n\ This\ is\ printData\ method\ that\ used\ to\ print\ getProvince()\r\n
 numComments=8

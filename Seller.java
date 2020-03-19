@@ -131,4 +131,9 @@ public class Seller
     {
         System.out.println(getName());
     }
+    
+    public String toString()
+    {
+        return "SELLER\nId: "+id+"\nName: "+name+"\nEmail: "+email+"\nPhoneNumber: "+phoneNumber+"/nLoction: "+location;    
+    }
 }
