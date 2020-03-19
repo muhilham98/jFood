@@ -1,7 +1,5 @@
 
 import java.util.*;
-import java.util.regex.*;
-import java.text.SimpleDateFormat;
 /**
  * <h1>JFood Program based on Object Oriented Programming<h1>
  * The JFood program implements an application that used to
@@ -70,15 +68,15 @@ public class JFood
        //invoice5.printData();
        
        
-       Calendar cal1 = new GregorianCalendar(2018, 6, 7);
-       Customer customer1 = new Customer (1, "ilham", "1ilham@gmail.com", "123456", cal1);
+       Calendar cal1 = new GregorianCalendar(2020, 6, 7);
+       Customer customer1 = new Customer (1, "ilham", ".ilham@gmail.com", "123456", cal1);
        Customer customer2 = new Customer (2, "Muhlis", "muhlis@gmail.com", "M12345m", 2020, 4, 1);
-       Customer customer3 = new Customer (3, "Fahmi", "fahmi@gmail.com", "M12345m");
+       Customer customer3 = new Customer (3, "Fahmi", "fahmi@gmail.com", "3M2345m");
        
        
-       System.out.println(customer1.toString());
-       System.out.println(customer2.toString());
-       System.out.println(customer3.toString());
+       customer1.toString();
+       customer2.toString();
+       customer3.toString();
        
        
        
