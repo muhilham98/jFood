@@ -134,6 +134,6 @@ public class Seller
     
     public String toString()
     {
-        return "SELLER\nId: "+id+"\nName: "+name+"\nEmail: "+email+"\nPhoneNumber: "+phoneNumber+"/nLoction: "+location;    
+        return "SELLER\nId: "+id+"\nName: "+name+"\nPhoneNumber: "+phoneNumber+"\nLocation: "+location;    
     }
 }

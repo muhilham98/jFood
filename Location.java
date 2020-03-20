@@ -80,6 +80,6 @@ public class Location
      */
     public String toString()
     {
-        return "CUSTOMER\nProvince: "+province+"\nDescription: "+description+"\nCity: "+city;
+        return "LOCATION\nProvince: "+province+"\nDescription: "+description+"\nCity: "+city;
     }
 }

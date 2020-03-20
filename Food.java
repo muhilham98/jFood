@@ -129,7 +129,7 @@ public class Food
      */
     public String toString()
     {
-       return "FOOD\nId: "+id+"\nId: "+id+"\name: "+name+"\nSeller: "+seller+"/nPrice: "+ price+"\ncCategory: " + category;
+       return "FOOD\nId: "+id+"\nName: "+name+"\nSeller: "+seller.getName()+"\nCity:"+seller.getLocation().getCity()+"\nPrice: "+ price+"\ncCategory: " + category;
     }
     
 }
