@@ -62,7 +62,7 @@ public class CashInvoice extends Invoice
             print  = "Customer:\n"+
                    "ID = "+super.getId()+"\n"+
                    "Food = "+super.getFood().getName()+"\n"+
-                   "Date = "+super.getDate(+"\n"+
+                   "Date = "+super.getDate()+"\n"+
                    "Customer = "+super.getCustomer().getName()+"\n"+
                    "Delivery Fee = "+deliveryFee+"\n"+
                    "Total Price = "+super.totalPrice+"\n"+

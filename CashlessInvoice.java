@@ -1,4 +1,6 @@
-
+import java.util.*;
+import java.util.regex.*;
+import java.text.SimpleDateFormat;
 /**
  * Write a description of class CashlessInvoice here.
  *
@@ -58,7 +60,8 @@ public class CashlessInvoice extends Invoice
         }
     }
     
-    public  String toString()
+  public String toString()
+   
     {
         if (getPromo() == null || promo.getActive() == false ||getFood().getPrice()<promo.getMinPrice()){
             System.out.println("============INOVOICE===========");
@@ -81,6 +84,33 @@ public class CashlessInvoice extends Invoice
             System.out.println("Status : " + getInvoiceStatus());
             System.out.println("Payment Type : "+ PAYMENT_TYPE);
         }
+        
+        String print;
+        if (getPromo() == null || promo.getActive() == false ||getFood().getPrice()<promo.getMinPrice()){
+            
+            //Date date1 = date.getTime();             
+            //SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+            //String date2 = format1.format(date);  
+            print  = "Customer:\n"+
+                   "ID = "+getId()+"\n"+
+                   "Food = "+getFood().getName()+"\n"+
+                   "Date = "+getDate()+"\n"+
+                   "Costumer = "+getCustomer().getName()+"\n"+
+                   "Promo = "+promo.getCode()+"\n"+
+                   "Total price = "+getCustomer().getName()+"\n"+
+                   "Status = "+promo.getCode()+"\n"+
+                    "Payment Type = "+PAYMENT_TYPE+"\n";
+        }
+        else
+        {    
+             print  = "Customer:\n"+
+                   "ID = "+getId()+"\n"+
+                   "Food = "+getFood().getName()+"\n"+
+                   "Date = "+getDate()+"\n"+
+                   "Costumer = "+getCustomer().getName()+"\n";
+        }
+        System.out.println(print);
+        return print;
     }
     
     
