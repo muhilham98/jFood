@@ -14,10 +14,10 @@ public class CashInvoice extends Invoice
     /**
      * Constructor for objects of class CashInvoice
      */
-    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
+    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
     {
         // initialise instance variables
-        super (id, food, date, customer, invoiceStatus);
+        super (id, food, customer, invoiceStatus);
     }
 
     /**
@@ -26,9 +26,9 @@ public class CashInvoice extends Invoice
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public CashInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee)
+    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee)
     {
-        super (id, food, date, customer, invoiceStatus);
+        super (id, food, customer, invoiceStatus);
         this.deliveryFee = deliveryFee;
     }
     
@@ -56,17 +56,23 @@ public class CashInvoice extends Invoice
         }
     }
     
-    public void printData()
+    public String toString()
     {
-            System.out.println("============INOVOICE===========");
-            System.out.println("ID       : " + super.getId());
-            System.out.println("Food     : " + super.getFood().getName());
-            System.out.println("Date     : " + super.getDate());
-            System.out.println("Costumer : " + super.getCustomer().getName());
-            System.out.println("Delivery Fee : " + deliveryFee);
-            System.out.println("Total Price : " + super.totalPrice);
-            System.out.println("Status : " + super.getInvoiceStatus());
-            System.out.println("Payment Type : "+ PAYMENT_TYPE);
+            String print;
+            print  = "Customer:\n"+
+                   "ID = "+super.getId()+"\n"+
+                   "Food = "+super.getFood().getName()+"\n"+
+                   "Date = "+super.getDate(+"\n"+
+                   "Customer = "+super.getCustomer().getName()+"\n"+
+                   "Delivery Fee = "+deliveryFee+"\n"+
+                   "Total Price = "+super.totalPrice+"\n"+
+                   "Status : " + super.getInvoiceStatus()+"\n"+
+                    "Payment Type : "+ PAYMENT_TYPE+"\n";
+                    System.out.println(print);
+                    return print;      
+                   
+            //System.out.println("============INOVOICE===========");
+           
         
     }
     

@@ -58,6 +58,7 @@ public class Customer
         this.password = password;
         setPassword(password);
         setEmail(email);
+        this.joinDate = Calendar.getInstance();
     }
 
     /**
@@ -136,7 +137,7 @@ public class Customer
         Pattern a = Pattern.compile(pattern);
         Matcher b = a.matcher(email);
         if (!b.find()) {
-            this.email = "NULL";
+            this.email = "";
         } else {
             this.email = email;
         }
@@ -152,7 +153,7 @@ public class Customer
         Pattern a = Pattern.compile(pattern);
         Matcher b = a.matcher(password);
         if(!b.find()){
-            this.password = "NULL";
+            this.password = "";
         }else{
             this.password = password;
         }

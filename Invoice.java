@@ -1,4 +1,6 @@
 
+import java.text.SimpleDateFormat;
+import java.util.*;
 /**
  * <h1>JFood Program based on Object Oriented Programming<h1>
  * This Invoice Class used to precessing Invoice data
@@ -18,7 +20,7 @@ public abstract class Invoice
     //private InvoiceStatus status;
     private int id;
     private Food food;
-    private String date;
+    private Calendar date;
     protected int totalPrice;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
@@ -33,11 +35,10 @@ public abstract class Invoice
      * @param customer - fourth parameter value of constructor, who received the invoice
      * @param totalPrice - fifth paramter value of constructor, total price value at that invoice
      */
-    public Invoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
+    public Invoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
     {
         this.id = id;
         this.food = food;
-        this.date= date;
         this.customer = customer;
         this.invoiceStatus = invoiceStatus;
         
@@ -65,7 +66,7 @@ public abstract class Invoice
      * This is getDate method that used to return id value
      * @return date, return date value
      */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -116,9 +117,14 @@ public abstract class Invoice
      * This is setDate method that used to set date value, that date is instance variable
      * @param date, set date in string
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date = date;
+    }
+    
+    public void setDate (int year, int month, int dayOfMonth)
+    {
+        this.date = new GregorianCalendar (year, month-1, dayOfMonth);
     }
     
     /**
@@ -147,6 +153,7 @@ public abstract class Invoice
     /**
      * This is printData method that used to print data
      */
-    public abstract void printData();
+    
+    public abstract String toString();
     
 }
