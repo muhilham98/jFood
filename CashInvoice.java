@@ -1,4 +1,12 @@
 
+
+
+
+
+
+import java.util.Calendar; 
+import java.text.SimpleDateFormat;
+
 /**
  * Write a description of class CashInvoice here.
  *
@@ -58,20 +66,21 @@ public class CashInvoice extends Invoice
     
     public String toString()
     {
+            SimpleDateFormat format1 = new SimpleDateFormat("dd MMMM yyyy");
+            String date1 = format1.format(getDate().getTime());
             String print;
-            print  = "Customer:\n"+
-                   "ID = "+super.getId()+"\n"+
-                   "Food = "+super.getFood().getName()+"\n"+
-                   "Date = "+super.getDate()+"\n"+
-                   "Customer = "+super.getCustomer().getName()+"\n"+
-                   "Delivery Fee = "+deliveryFee+"\n"+
-                   "Total Price = "+super.totalPrice+"\n"+
-                   "Status : " + super.getInvoiceStatus()+"\n"+
-                    "Payment Type : "+ PAYMENT_TYPE+"\n";
-                    System.out.println(print);
-                    return print;      
-                   
-            //System.out.println("============INOVOICE===========");
+            print  = "======INVOICE======"+
+                   "\nID = "+super.getId()+
+                   "\nFood = "+super.getFood().getName()+
+                   "\nDate = "+date1+
+                   "\nCustomer = "+super.getCustomer().getName()+
+                   "\nDelivery Fee = "+deliveryFee+
+                   "\nTotal Price = "+super.totalPrice+
+                   "\nStatus : " + super.getInvoiceStatus()+
+                   "\nPayment Type : "+ PAYMENT_TYPE;
+            //System.out.println(print);
+            return print;      
+                  
            
         
     }

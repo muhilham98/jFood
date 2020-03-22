@@ -1,6 +1,5 @@
-import java.util.*;
-import java.util.regex.*;
 import java.text.SimpleDateFormat;
+import java.util.*;
 /**
  * Write a description of class CashlessInvoice here.
  *
@@ -63,53 +62,31 @@ public class CashlessInvoice extends Invoice
   public String toString()
    
     {
-        if (getPromo() == null || promo.getActive() == false ||getFood().getPrice()<promo.getMinPrice()){
-            System.out.println("============INOVOICE===========");
-            System.out.println("ID       : " + getId());
-            System.out.println("Food     : " + getFood().getName());
-            System.out.println("Date     : " + getDate());
-            System.out.println("Costumer : " + getCustomer().getName());
-            System.out.println("Total Price : " + totalPrice);
-            System.out.println("Status : " + getInvoiceStatus());
-            System.out.println("Payment Type : "+ PAYMENT_TYPE);
-        }
-        else{
-            System.out.println("============INOVOICE===========");
-            System.out.println("ID       : " + getId());
-            System.out.println("Food     : " + getFood().getName());
-            System.out.println("Date     : " + getDate());
-            System.out.println("Costumer : " + getCustomer().getName());
-            System.out.println("Promo : " + promo.getCode());
-            System.out.println("Total Price : " + totalPrice);
-            System.out.println("Status : " + getInvoiceStatus());
-            System.out.println("Payment Type : "+ PAYMENT_TYPE);
-        }
-        
+        SimpleDateFormat format1 = new SimpleDateFormat("dd MMMM yyyy");
+        String date1 = format1.format(getDate().getTime());
         String print;
         if (getPromo() == null || promo.getActive() == false ||getFood().getPrice()<promo.getMinPrice()){
-            
-            //Date date1 = date.getTime();             
-            //SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-            //String date2 = format1.format(date);  
-            print  = "Customer:\n"+
-                   "ID = "+getId()+"\n"+
-                   "Food = "+getFood().getName()+"\n"+
-                   "Date = "+getDate()+"\n"+
-                   "Costumer = "+getCustomer().getName()+"\n"+
-                   "Promo = "+promo.getCode()+"\n"+
-                   "Total price = "+getCustomer().getName()+"\n"+
-                   "Status = "+promo.getCode()+"\n"+
-                    "Payment Type = "+PAYMENT_TYPE+"\n";
+             
+            print  = "=====INVOICE====="+
+                   "\nID = "+getId()+
+                   "\nFood = "+getFood().getName()+
+                   "\nDate = "+date1+
+                   "\nCostumer = "+getCustomer().getName()+
+                   "\nTotal price = "+totalPrice+
+                   "\nStatus: "+ getInvoiceStatus()+
+                   "\nPayment Type = "+PAYMENT_TYPE+"\n";
+        }else{    
+             print  = "=====INVOICE====="+
+                   "\nID = "+getId()+
+                   "\nFood = "+getFood().getName()+
+                   "\nDate = "+date1+
+                   "\nCostumer = "+getCustomer().getName()+
+                   "\nPromo = "+promo.getCode()+
+                   "\nTotal price = "+totalPrice+
+                   "\nStatus = "+getInvoiceStatus()+
+                   "\nPayment Type = "+PAYMENT_TYPE;
         }
-        else
-        {    
-             print  = "Customer:\n"+
-                   "ID = "+getId()+"\n"+
-                   "Food = "+getFood().getName()+"\n"+
-                   "Date = "+getDate()+"\n"+
-                   "Costumer = "+getCustomer().getName()+"\n";
-        }
-        System.out.println(print);
+
         return print;
     }
     

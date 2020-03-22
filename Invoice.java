@@ -41,6 +41,7 @@ public abstract class Invoice
         this.food = food;
         this.customer = customer;
         this.invoiceStatus = invoiceStatus;
+        this.date = Calendar.getInstance();
         
     }
 

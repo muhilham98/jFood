@@ -56,9 +56,9 @@ public class Customer
         this.name = name;
         this.email = email;
         this.password = password;
+        this.joinDate = Calendar.getInstance();
         setPassword(password);
         setEmail(email);
-        this.joinDate = Calendar.getInstance();
     }
 
     /**
