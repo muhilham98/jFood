@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=JFood
-comment0.text=\r\n\ <h1>JFood\ Program\ based\ on\ Object\ Oriented\ Programming<h1>\r\n\ The\ JFood\ program\ implements\ an\ application\ that\ used\ to\r\n\ order\ food\ and\ processing\ related\ data\r\n\ <p>\r\n\ @author\ Muhammad\ Ilham\ Akbar\r\n\ @version\ 1.0\r\n\ @since\ 2020-02-27\r\n
-comment1.params=
-comment1.target=JFood()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ JFood\r\n
-comment2.params=args
-comment2.target=void\ main(java.lang.String[])
-numComments=3
