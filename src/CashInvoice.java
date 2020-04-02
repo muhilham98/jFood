@@ -6,6 +6,8 @@
 
 import java.util.Calendar; 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Write a description of class CashInvoice here.
@@ -22,10 +24,10 @@ public class CashInvoice extends Invoice
     /**
      * Constructor for objects of class CashInvoice
      */
-    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
         // initialise instance variables
-        super (id, food, customer, invoiceStatus);
+        super (id, foods, customer);
     }
 
     /**
@@ -34,9 +36,9 @@ public class CashInvoice extends Invoice
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee)
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer,int deliveryFee)
     {
-        super (id, food, customer, invoiceStatus);
+        super (id, foods, customer);
         this.deliveryFee = deliveryFee;
     }
     
@@ -57,29 +59,50 @@ public class CashInvoice extends Invoice
     
      public void setTotalPrice()
     {
-        if (getDeliveryFee()!= 0){
-            super.totalPrice = getFood().getPrice() + getDeliveryFee();
-        } else{
-            super.totalPrice = getFood().getPrice();
+        int foodPrice=0;
+        for(int i = 0; i < super.getFoods().size(); i++){
+            foodPrice+=super.getFoods().get(i).getPrice();
         }
+        if(deliveryFee>0)
+        {
+            super.totalPrice=foodPrice+deliveryFee;
+        }
+        else super.totalPrice=foodPrice;
     }
     
     public String toString()
     {
-            SimpleDateFormat format1 = new SimpleDateFormat("dd MMMM yyyy");
-            String date1 = format1.format(getDate().getTime());
-            String print;
-            print  = "======INVOICE======"+
-                   "\nID = "+super.getId()+
-                   "\nFood = "+super.getFood().getName()+
-                   "\nDate = "+date1+
-                   "\nCustomer = "+super.getCustomer().getName()+
-                   "\nDelivery Fee = "+deliveryFee+
-                   "\nTotal Price = "+super.totalPrice+
-                   "\nStatus : " + super.getInvoiceStatus()+
-                   "\nPayment Type : "+ PAYMENT_TYPE;
-            //System.out.println(print);
-            return print;      
+        String string="";
+        Date date = super.getDate().getTime();
+        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+        String date1 = format1.format(date);
+        if(deliveryFee>0)
+        {
+            string= "ID: "+super.getId()+
+                            "\nFood: "+super.getFoods()+
+                            "\nDate: "+date1+
+                            "\nCustomer: "+super.getCustomer().getName()+
+                            "\nDelivery Fee: "+deliveryFee+
+                            "\nTotal Price: "+super.totalPrice+
+                            "\nStatus: "+super.getInvoiceStatus()+
+                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
+
+            System.out.println(string);
+        }
+        else
+        {
+            string= "ID: "+super.getId()+
+                            "\nFoods: "+super.getFoods()+
+                            "\nDate: "+date1+
+                            "\nCustomer: "+super.getCustomer().getName()+
+                            "\nDelivery Fee: 0"+
+                            "\nTotal Price: "+super.totalPrice+
+                            "\nStatus: "+super.getInvoiceStatus()+
+                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
+
+            System.out.println(string);
+        }
+        return string;
                   
            
         

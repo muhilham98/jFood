@@ -1,43 +1,80 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class DatabaseCustomer here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class DatabaseCustomer
-{
+public class DatabaseCustomer {
     // instance variables - replace the example below with your own
-    private static String[] listFood;
+    // private static String[] listFood;
+    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<>();
+    private static int lastId = 0;
 
     /**
      * Constructor for objects of class DatabaseCustomer
      */
-    public static boolean addCustomer(Customer customer)
-    {
+    public DatabaseCustomer() {
         // initialise instance variables
-        return true;
+
+    }
+
+    public static ArrayList<Customer> getCustomerDatabase() {
+        return CUSTOMER_DATABASE;
+    }
+
+    public static int getLastId() {
+        return lastId;
+    }
+
+    public static Customer getCustomerById(int id) {
+        Customer customer = CUSTOMER_DATABASE.get(id);
+        if (customer != null) {
+            return customer;
+        }
+        return null;
+    }
+
+    public static boolean addCustomer(Customer customer) {
+        // initialise instance variables
+        boolean sameEmailBuff = false;
+        for (Customer i : CUSTOMER_DATABASE) {
+            if (customer.getEmail() == i.getEmail()) {
+                sameEmailBuff = true;
+            }
+        }
+
+        if (!sameEmailBuff) {
+            CUSTOMER_DATABASE.add(customer);
+            lastId = CUSTOMER_DATABASE.indexOf(customer);
+        }
+        return false;
     }
 
     /**
      * An example of a method - replace this comment with your own
+     * <p>
+     * a sample parameter for a method
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return the sum of x and y
      */
-    public static boolean removeCustomer(Customer customer)
-    {
+    public static boolean removeCustomer(int id) {
         // put your code here
-        return true;
+        Customer customer = CUSTOMER_DATABASE.get(id);
+        if (customer != null) {
+            CUSTOMER_DATABASE.remove(customer);
+            return true;
+        }
+        return false;
     }
-    
-    public static Customer getCustomer()
-    {
-        return null;
-    }
-    
-    public static String[] getListCustomer ()
-    {
-        return listFood;
-    }
+
+    //public static Customer getCustomer()
+//    {
+//        return null;
+//    }
+//
+//    public static String[] getListCustomer ()
+//    {
+//        return listFood;
+//    }
 }

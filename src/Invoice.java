@@ -1,6 +1,10 @@
 
-import java.text.SimpleDateFormat;
+
 import java.util.*;
+import java.text.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+
 /**
  * <h1>JFood Program based on Object Oriented Programming<h1>
  * This Invoice Class used to precessing Invoice data
@@ -19,11 +23,12 @@ public abstract class Invoice
     //private PaymentType paymentType;
     //private InvoiceStatus status;
     private int id;
-    private Food food;
+    ArrayList<Food> foods = new ArrayList();
+    //private Food food;
     private Calendar date;
     protected int totalPrice;
     private Customer customer;
-    private InvoiceStatus invoiceStatus;
+    private InvoiceStatus invoiceStatus = InvoiceStatus.ONGOING;
 
     /**
      * This is constructor for object of class Invoice
@@ -35,12 +40,12 @@ public abstract class Invoice
      * @param customer - fourth parameter value of constructor, who received the invoice
      * @param totalPrice - fifth paramter value of constructor, total price value at that invoice
      */
-    public Invoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
+    public Invoice(int id, ArrayList<Food> foods, Customer customer)
     {
         this.id = id;
-        this.food = food;
+        this.foods = foods;
         this.customer = customer;
-        this.invoiceStatus = invoiceStatus;
+        //this.invoiceStatus = invoiceStatus;
         this.date = Calendar.getInstance();
         
     }
@@ -49,8 +54,7 @@ public abstract class Invoice
      * This is getId method that used to return id value
      * @return id, return invoice id value
      */
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
     
@@ -58,9 +62,9 @@ public abstract class Invoice
      * This is getIdFood method that used to return id value
      * @return idFood, return idFood value
      */
-    public Food getFood()
+    public ArrayList<Food> getFoods()
     {
-        return food;
+        return foods;
     }
     
     /**
@@ -100,8 +104,7 @@ public abstract class Invoice
      * This is setId method that used to set id value, that id is instance variable
      * @param id, set id in integer
      */
-    public void setId(int id)
-    {
+    public void setId(int id) {
         this.id = id;
     }
     
@@ -109,9 +112,8 @@ public abstract class Invoice
      * This is setIdFood method that used to set idFood value, that idFood is instance variable
      * @param idFood, set idFood in integer
      */
-    public void setFood(Food food)
-    {
-        this.food = food;
+    public void setFood(ArrayList<Food> foods) {
+        this.foods = foods;
     }
     
     /**
