@@ -37,16 +37,16 @@ public class DatabaseCustomer {
 
     public static boolean addCustomer(Customer customer) {
         // initialise instance variables
-        boolean sameEmailBuff = false;
+        boolean sameEmail= false;
         for (Customer i : CUSTOMER_DATABASE) {
             if (customer.getEmail() == i.getEmail()) {
-                sameEmailBuff = true;
+                sameEmail = true;
             }
         }
 
-        if (!sameEmailBuff) {
+        if (!sameEmail) {
             CUSTOMER_DATABASE.add(customer);
-            lastId = CUSTOMER_DATABASE.indexOf(customer);
+            lastId = customer.getId();
         }
         return false;
     }

@@ -28,7 +28,7 @@ public abstract class Invoice
     private Calendar date;
     protected int totalPrice;
     private Customer customer;
-    private InvoiceStatus invoiceStatus = InvoiceStatus.ONGOING;
+    private InvoiceStatus invoiceStatus;
 
     /**
      * This is constructor for object of class Invoice
@@ -45,7 +45,7 @@ public abstract class Invoice
         this.id = id;
         this.foods = foods;
         this.customer = customer;
-        //this.invoiceStatus = invoiceStatus;
+        this.invoiceStatus = InvoiceStatus.ONGOING;
         this.date = Calendar.getInstance();
         
     }

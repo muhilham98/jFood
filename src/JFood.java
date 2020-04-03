@@ -82,50 +82,54 @@ public class JFood
 //       System.out.println(invoice4.toString());
 //       System.out.println(invoice5.toString());
 
-        public static void main(String[] args) {
+
+
         Location lokasi1 = new Location("Kebumen", "Jateng", "Jawa");
         Location lokasi2 = new Location("Curup", "Bengkulu", "Sumatra");
         DatabasePromo.addPromo((new Promo(1, "123", 2000, 3000, true)));
-        //System.out.println(Medan.getCity());
 
-        DatabaseSeller.addSeller(new Seller(2, "akbar", "akbar@gmail.com", "0811111", lokasi1));
-        DatabaseSeller.addSeller(new Seller(4, "muhammad", "muhamad@gmail.com", "0822222", lokasi2));
-        //System.out.println("\nSeller");
-        DatabaseFood.addFood(new Food(1, "Nasi Merah", DatabaseSeller.getSellerById(1), 6000, FoodCategory.COFFEE));
-        DatabaseFood.addFood(new Food(2, "Tahu Putih", DatabaseSeller.getSellerById(2), 4000, FoodCategory.COFFEE));
-        DatabaseFood.addFood(new Food(3, "Nasi Goreng", DatabaseSeller.getSellerById(3), 17000, FoodCategory.WESTERN));
 
-        //System.out.println(Nasi.getCategory());
+        DatabaseSeller.addSeller(new Seller(1, "akbar", "akbar@gmail.com", "0811111", lokasi1));
+        DatabaseSeller.addSeller(new Seller(2, "muhammad", "muhamad@gmail.com", "0822222", lokasi2));
 
-        //System.out.println("\nCustomer");
-        //System.out.println(Tian.getName());
-        DatabaseCustomer.addCustomer(new Customer(1,"ilham","ilham@gmail.com", "12345678"));
-        DatabaseCustomer.addCustomer(new Customer(2,"ilham","ilham_akbar@gmail.com", "12345678"));
-        DatabaseCustomer.addCustomer(new Customer(3,"GIlang","gilang@gmail.com", "1234567"));
+        DatabaseFood.addFood(new Food(1, "Kopi hitam", DatabaseSeller.getSellerById(1), 6000, FoodCategory.COFFEE));
+        DatabaseFood.addFood(new Food(2, "Mochacino", DatabaseSeller.getSellerById(2), 4000, FoodCategory.COFFEE));
+        DatabaseFood.addFood(new Food(3, "Mie ayam", DatabaseSeller.getSellerById(3), 17000, FoodCategory.NOODLES));
+
+        DatabaseCustomer.addCustomer(new Customer(1,"ilham","ilham@gmail.com", "aA345678"));
+        DatabaseCustomer.addCustomer(new Customer(2,"ilham","ilham@gmail.com", "12345678"));
+        DatabaseCustomer.addCustomer(new Customer(3,"Gilang","gilang@gmail.com", "1234567"));
 
 
       // CashlessInvoice invoice1 = new CashlessInvoice(1, DatabaseFood.getFoodDatabase(), DatabaseCustomer.getCustomerById(1), InvoiceStatus.ONGOING, DatabasePromo.getPromoById(1));
        // CashInvoice invoice2 = new CashInvoice(1, DatabaseFood.getFoodDatabase(), DatabaseCustomer.getCustomerById(2), InvoiceStatus.ONGOING, 2000);
        // CashInvoice invoice3 = new CashInvoice(2, DatabaseFood.getFoodDatabase(), DatabaseCustomer.getCustomerById(2), InvoiceStatus.ONGOING, 3000);
 
-        //System.out.println("Data Customer \n"+DatabaseCustomer.getCustomerDatabase());
-        //System.out.println("Food : \n"+DatabaseFood.getFoodByCategory(FoodCategory.COFFEE));
+//        for (int i=0; i<DatabaseCustomer.getCustomerDatabase().size();i++){
+//
+//            System.out.println(DatabaseCustomer.getCustomerById(i).getName());
+//        }
+//
+//        for ( int i=0 ; i<DatabaseFood.getFoodByCategory(FoodCategory.COFFEE).size(); i++){
+//
+//            System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.COFFEE).get(i).getName());
+//        }
+
+        for (Customer i: DatabaseCustomer.getCustomerDatabase()){
+
+            System.out.println(i);
+        }
+
+        for ( Food i : DatabaseFood.getFoodByCategory(FoodCategory.COFFEE)){
+
+            System.out.println(i);
+        }
 
 
 
 
-
-
-
-        //Nasi.printData();
-        //invoice1.printData();
     }
 
 
 
-
-
-
-
-    }
 }

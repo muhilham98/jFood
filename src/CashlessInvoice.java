@@ -69,47 +69,69 @@ public class CashlessInvoice extends Invoice
             super.totalPrice = totalFoodPrice;
         }
     }
-    
-  public String toString()
-   
+
+    public String toString()
     {
-        String string="";
-        Date date = super.getDate().getTime();
-        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-        String date1 = format1.format(date);
-
-        int foodPrice=0;
-        for(int i = 0; i < super.getFoods().size(); i++){
-            foodPrice+=super.getFoods().get(i).getPrice();
+        String food = " ";
+        for(int i = 0; i < getFoods().size(); i++){
+            food = food + getFoods().get(i).getName() + " ";
         }
-
-        if(promo!=null&&promo.getActive()==true&&foodPrice>promo.getMinPrice())
-        {
-            string= "ID: "+super.getId()+
-                            "\nFood: "+super.getFoods()+
-                            "\nDate: "+date1+
-                            "\nCustomer: "+super.getCustomer().getName()+
-                            "\nPromo: "+promo.getCode()+
-                            "\nTotal Price: "+super.totalPrice+
-                            "\nStatus: "+super.getInvoiceStatus()+
-                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
-
-            System.out.println(string);
+        String b = "======INVOICE======\n" +
+                    "FOOD :" + food;
+        if(super.getDate() != null){
+            b = b + "\nDate :" + super.getDate().get(Calendar.DAY_OF_MONTH) + "-" + super.getDate().get(Calendar.MONTH) + "-"+ super.getDate().get(Calendar.YEAR);
         }
-        else
-        {
-            string= "ID: "+super.getId()+
-                            "\nFood: \n"+super.getFoods()+
-                            "\nDate: "+date1+
-                            "\nCustomer: "+super.getCustomer().getName()+
-                            "\nTotal Price: "+super.totalPrice+
-                            "\nStatus: "+super.getInvoiceStatus()+
-                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
+        b = b + "\nCustomer :" + super.getCustomer().getName();
 
-            System.out.println(string);
+        if(promo != null){
+            b = b+"\nPromo :" + promo.getCode();
         }
-        return string;
+        b = b+ "\nTotal price :" + getTotalPrice()+
+                "\nStatus :" + super.getInvoiceStatus() +
+                "\nPayment Type :" + PAYMENT_TYPE;
+        return b;
     }
+    
+//  public String toString()
+//
+//    {
+//        String string="";
+//        Date date = super.getDate().getTime();
+//        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+//        String date1 = format1.format(date);
+//
+//        int foodPrice=0;
+//        for(int i = 0; i < super.getFoods().size(); i++){
+//            foodPrice+=super.getFoods().get(i).getPrice();
+//        }
+//
+//        if(promo!=null&&promo.getActive()==true&&foodPrice>promo.getMinPrice())
+//        {
+//            string= "ID: "+super.getId()+
+//                            "\nFood: "+super.getFoods()+
+//                            "\nDate: "+date1+
+//                            "\nCustomer: "+super.getCustomer().getName()+
+//                            "\nPromo: "+promo.getCode()+
+//                            "\nTotal Price: "+super.totalPrice+
+//                            "\nStatus: "+super.getInvoiceStatus()+
+//                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
+//
+//            System.out.println(string);
+//        }
+//        else
+//        {
+//            string= "ID: "+super.getId()+
+//                            "\nFood: \n"+super.getFoods()+
+//                            "\nDate: "+date1+
+//                            "\nCustomer: "+super.getCustomer().getName()+
+//                            "\nTotal Price: "+super.totalPrice+
+//                            "\nStatus: "+super.getInvoiceStatus()+
+//                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
+//
+//            System.out.println(string);
+//        }
+//        return string;
+//    }
     
     
 }

@@ -47,24 +47,24 @@ public class DatabaseFood
 
     public static ArrayList<Food> getFoodBySeller (int sellerId)
     {
-        ArrayList<Food> array1 = new ArrayList<>();
+        ArrayList<Food> i = new ArrayList<>();
         for (Food food: FOOD_DATABASE) {
             if (food.getSeller().getId() == sellerId) {
-                array1.add(food);
+                i.add(food);
             }
         }
-        return array1;
+        return i;
     }
 
     public static ArrayList<Food> getFoodByCategory(FoodCategory category)
     {
-        ArrayList<Food> array1 = new ArrayList<>();
+        ArrayList<Food> i = new ArrayList<>();
         for (Food food: FOOD_DATABASE) {
             if (food.getCategory() == category) {
-                array1.add(food);
+                i.add(food);
             }
         }
-        return array1;
+        return i;
     }
 
     public static boolean addFood(Food food)

@@ -81,7 +81,7 @@ public class Food
     
     /**
      * This is setId method that used to set id value, that id is instance variable
-     * @param id, set id value in integer
+     * @param , set id value in integer
      */
     public void setId (int Id)
     {
@@ -129,7 +129,13 @@ public class Food
      */
     public String toString()
     {
-       return "FOOD\nId: "+id+"\nName: "+name+"\nSeller: "+seller.getName()+"\nCity:"+seller.getLocation().getCity()+"\nPrice: "+ price+"\ncCategory: " + category;
+        String string = "ID = "+getId()+"\n"+
+                        "Nama = "+getName()+"\n"+
+                        "Seller = "+seller.getName()+"\n"+
+                        "City = "+getSeller().getLocation().getCity()+"\n"+
+                        "Price = "+price+"\n"+
+                        "Category = "+category+"\n";
+        return string;
     }
     
 }

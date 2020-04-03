@@ -50,27 +50,25 @@ public class DatabaseSeller
     {
         return lastId;
     }
+
     public static Seller getSellerById(int id)
     {
-        Seller value = null;
-        for(Seller seller : SELLER_DATABASE)
-        {
-            if(seller.getId()==lastId)
-            {
-                value=seller;
+        boolean checker = false;
+        for(int i=0;i<SELLER_DATABASE.size();i++){
+            if(SELLER_DATABASE.get(i).getId() == id){
+                checker = true;
+                return SELLER_DATABASE.get(i);
+
             }
-            else
-            {
-                return value;
-            }
+
         }
 
-        return value;
+        return null;
     }
     public static boolean addSeller(Seller seller)
     {
         SELLER_DATABASE.add(seller);
-        lastId = seller.getId();
+        lastId = SELLER_DATABASE.indexOf(seller);
         return true;
     }
 

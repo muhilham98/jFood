@@ -200,7 +200,7 @@ public class Customer
                    "Email = "+email+"\n"+
                    "Password = "+password+"\n";
         }
-        System.out.println(print);
+        //System.out.println(print);
         return print;
     }
     

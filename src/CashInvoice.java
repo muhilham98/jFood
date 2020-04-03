@@ -69,44 +69,65 @@ public class CashInvoice extends Invoice
         }
         else super.totalPrice=foodPrice;
     }
-    
-    public String toString()
-    {
-        String string="";
-        Date date = super.getDate().getTime();
-        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-        String date1 = format1.format(date);
-        if(deliveryFee>0)
-        {
-            string= "ID: "+super.getId()+
-                            "\nFood: "+super.getFoods()+
-                            "\nDate: "+date1+
-                            "\nCustomer: "+super.getCustomer().getName()+
-                            "\nDelivery Fee: "+deliveryFee+
-                            "\nTotal Price: "+super.totalPrice+
-                            "\nStatus: "+super.getInvoiceStatus()+
-                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
 
-            System.out.println(string);
-        }
-        else
-        {
-            string= "ID: "+super.getId()+
-                            "\nFoods: "+super.getFoods()+
-                            "\nDate: "+date1+
-                            "\nCustomer: "+super.getCustomer().getName()+
-                            "\nDelivery Fee: 0"+
-                            "\nTotal Price: "+super.totalPrice+
-                            "\nStatus: "+super.getInvoiceStatus()+
-                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
 
-            System.out.println(string);
+    public String toString() {
+        String food = " ";
+        for (int i = 0; i < getFoods().size(); i++){
+            food = food + getFoods().get(i).getName() + " ";
         }
-        return string;
-                  
-           
-        
+
+        String b = "======INVOICE======\n" +
+                    "FOOD :" + food;
+        if(super.getDate() != null){
+            b = b+ "\nDate :" + super.getDate().get(Calendar.DAY_OF_MONTH) + "-" + super.getDate().get(Calendar.MONTH) + "-"+ super.getDate().get(Calendar.YEAR) ;
+
+        }
+        b = b+"\nCustomer :" + super.getCustomer().getName();
+        if(deliveryFee != 0){
+            b = b+"\nDelivery Fee :"+ deliveryFee;
+        }
+        b = b+ "\nTotal price :" + getTotalPrice()+
+                "\nStatus :" + super.getInvoiceStatus() +
+                "\nPayment Type :" + PAYMENT_TYPE;
+        return b;
     }
+    
+//    public String toString()
+//    {
+//        String string="";
+//        Date date = super.getDate().getTime();
+//        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+//        String date1 = format1.format(date);
+//        if(deliveryFee>0)
+//        {
+//            string= "ID: "+super.getId()+
+//                            "\nFood: "+super.getFoods()+
+//                            "\nDate: "+date1+
+//                            "\nCustomer: "+super.getCustomer().getName()+
+//                            "\nDelivery Fee: "+deliveryFee+
+//                            "\nTotal Price: "+super.totalPrice+
+//                            "\nStatus: "+super.getInvoiceStatus()+
+//                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
+//
+//            System.out.println(string);
+//        }
+//        else
+//        {
+//            string= "ID: "+super.getId()+
+//                            "\nFoods: "+super.getFoods()+
+//                            "\nDate: "+date1+
+//                            "\nCustomer: "+super.getCustomer().getName()+
+//                            "\nDelivery Fee: 0"+
+//                            "\nTotal Price: "+super.totalPrice+
+//                            "\nStatus: "+super.getInvoiceStatus()+
+//                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
+//
+//            System.out.println(string);
+//        }
+//        return string;
+//
+//    }
     
     
 }
