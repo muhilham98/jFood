@@ -1,7 +1,4 @@
-import java.util.Calendar;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class DatabaseInvoice {
 
@@ -16,7 +13,7 @@ public class DatabaseInvoice {
     {
         return INVOICE_DATABASE;
     }
-    public static int getlastId()
+    public static int getLastId()
     {
         return lastId;
     }
@@ -55,13 +52,10 @@ public class DatabaseInvoice {
 
     public static boolean changeInvoiceStatus (int id, InvoiceStatus invoiceStatus)
     {
-        for(Invoice temp : INVOICE_DATABASE)
-        {
-            if(temp.getId() == id)
-            {
-                if(temp.getInvoiceStatus() == InvoiceStatus.ONGOING)
-                {
-                    temp.setInvoiceStatus(InvoiceStatus.FINISHED);
+        for(Invoice i : INVOICE_DATABASE) {
+            if(i.getId() == id) {
+                if(i.getInvoiceStatus() == InvoiceStatus.ONGOING) {
+                    i.setInvoiceStatus(InvoiceStatus.FINISHED);
                     return true;
                 }
             }
