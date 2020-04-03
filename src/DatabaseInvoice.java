@@ -53,10 +53,21 @@ public class DatabaseInvoice {
         return false;
     }
 
-//    public static boolean changeInvoiceStatus (int id, InvoiceStatus invoiceStatus)
-//    {
-//
-//    }
+    public static boolean changeInvoiceStatus (int id, InvoiceStatus invoiceStatus)
+    {
+        for(Invoice temp : INVOICE_DATABASE)
+        {
+            if(temp.getId() == id)
+            {
+                if(temp.getInvoiceStatus() == InvoiceStatus.ONGOING)
+                {
+                    temp.setInvoiceStatus(InvoiceStatus.FINISHED);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public static boolean removeInvoice(int id)
     {

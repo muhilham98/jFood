@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 /**
@@ -125,6 +125,9 @@ public class JFood
 //
 //            System.out.println(i);
 //        }
+        ArrayList<Food> food1 = new ArrayList();
+        ArrayList<Food> food2 = new ArrayList();
+        DatabaseInvoice.addInvoice(new CashInvoice(2, DatabaseFood.getFoodDatabase(), DatabaseCustomer.getCustomerById(2), 2000));
 
         for (Promo i: DatabasePromo.getPromoDatabase()){
 
