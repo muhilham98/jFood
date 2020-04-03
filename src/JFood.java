@@ -86,6 +86,7 @@ public class JFood
 
         Location lokasi1 = new Location("Kebumen", "Jateng", "Jawa");
         Location lokasi2 = new Location("Curup", "Bengkulu", "Sumatra");
+        DatabasePromo.addPromo((new Promo(1, "123", 2000, 3000, false)));
         DatabasePromo.addPromo((new Promo(1, "123", 2000, 3000, true)));
 
 
@@ -115,12 +116,17 @@ public class JFood
 //            System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.COFFEE).get(i).getName());
 //        }
 
-        for (Customer i: DatabaseCustomer.getCustomerDatabase()){
+//        for (Customer i: DatabaseCustomer.getCustomerDatabase()){
+//
+//            System.out.println(i);
+//        }
+//
+//        for ( Food i : DatabaseFood.getFoodByCategory(FoodCategory.COFFEE)){
+//
+//            System.out.println(i);
+//        }
 
-            System.out.println(i);
-        }
-
-        for ( Food i : DatabaseFood.getFoodByCategory(FoodCategory.COFFEE)){
+        for (Promo i: DatabasePromo.getPromoDatabase()){
 
             System.out.println(i);
         }

@@ -47,6 +47,7 @@ public class DatabaseCustomer {
         if (!sameEmail) {
             CUSTOMER_DATABASE.add(customer);
             lastId = customer.getId();
+            return true;
         }
         return false;
     }

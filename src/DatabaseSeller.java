@@ -53,10 +53,10 @@ public class DatabaseSeller
 
     public static Seller getSellerById(int id)
     {
-        boolean checker = false;
+        boolean check = false;
         for(int i=0;i<SELLER_DATABASE.size();i++){
             if(SELLER_DATABASE.get(i).getId() == id){
-                checker = true;
+                check = true;
                 return SELLER_DATABASE.get(i);
 
             }
@@ -72,13 +72,20 @@ public class DatabaseSeller
         return true;
     }
 
-    public static boolean removeSeller(int id) {
-        Seller seller = SELLER_DATABASE.get(id);
-        if (seller != null) {
-            SELLER_DATABASE.remove(seller);
-            return true;
+    public static boolean removeSeller(int id)
+    {   boolean check = false;
+        for(int i=0;i<SELLER_DATABASE.size();i++){
+            if(SELLER_DATABASE.get(i).getId() == id){
+                check = true;
+                SELLER_DATABASE.remove(i);
+                return true;
+
+            }
+
         }
+
         return false;
+
     }
 
 }
