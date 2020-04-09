@@ -36,9 +36,12 @@ public class DatabasePromo
     }
     public static Promo getPromoById(int id)
     {
-        Promo promo = PROMO_DATABASE.get(id);
-        if (promo != null) {
-            return promo;
+        for(Promo i : PROMO_DATABASE)
+        {
+            if(i.getId() == id)
+            {
+                return i;
+            }
         }
         return null;
     }
@@ -55,46 +58,52 @@ public class DatabasePromo
 
     public static boolean addPromo(Promo promo)
     {
-        // put your code here
-        boolean samePromoCode = false;
-        for (Promo i: PROMO_DATABASE) {
-            if (promo.getCode() == i.getCode()) {
-                samePromoCode = true;
+        for (Promo i : PROMO_DATABASE)
+        {
+            if(i.getCode().equals(promo.getCode()))
+            {
+                return false;
             }
         }
-
-        if (!samePromoCode) {
-            PROMO_DATABASE.add(promo);
-            lastId = PROMO_DATABASE.indexOf(promo);
-        }
-        return false;
+        PROMO_DATABASE.add(promo);
+        lastId = promo.getId();
+        return true;
     }
 
     public static boolean activePromo(int id)
     {
-        Promo promo = PROMO_DATABASE.get(id);
-        if (promo != null) {
-            promo.setActive(true);
-            return true;
+        for(Promo promo : PROMO_DATABASE)
+        {
+            if (promo.getId() == id)
+            {
+                promo.setActive(true);
+                return true;
+            }
         }
         return false;
     }
     public static boolean deactivePromo(int id)
     {
-        Promo promo = PROMO_DATABASE.get(id);
-        if (promo != null) {
-            promo.setActive(false);
-            return true;
+        for (Promo promo : PROMO_DATABASE)
+        {
+            if (promo.getId() == id)
+            {
+                promo.setActive(false);
+                return true;
+            }
         }
         return false;
     }
 
     public static boolean removePromo(int id)
     {
-        Promo promo = PROMO_DATABASE.get(id);
-        if (promo != null) {
-            PROMO_DATABASE.remove(promo);
-            return true;
+        for (Promo promo : PROMO_DATABASE)
+        {
+            if (promo.getId() == id)
+            {
+                PROMO_DATABASE.remove(promo);
+                return true;
+            }
         }
         return false;
     }

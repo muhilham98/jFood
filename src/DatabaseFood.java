@@ -31,16 +31,19 @@ public class DatabaseFood
         return FOOD_DATABASE;
     }
 
-    public static int getlastId()
+    public static int getLastId()
     {
         return lastId;
     }
 
     public static Food getFoodById(int id)
     {
-        Food food = FOOD_DATABASE.get(id);
-        if (food != null) {
-            return food;
+        for (Food food : FOOD_DATABASE)
+        {
+            if (food.getId() == id)
+            {
+                return food;
+            }
         }
         return null;
     }
@@ -70,11 +73,9 @@ public class DatabaseFood
     public static boolean addFood(Food food)
     {
         // put your code here
-        if (FOOD_DATABASE.add(food)) {
-            FOOD_DATABASE.indexOf(food);
-            return true;
-        }
-        return false;
+        FOOD_DATABASE.add(food);
+        lastId = food.getId();
+        return true;
     }
     
     /**
@@ -82,11 +83,23 @@ public class DatabaseFood
      * @return true, boolen return
      */
 
-    public static boolean removeFood(int id) {
-        Food food = FOOD_DATABASE.get(id);
-        if (food != null) {
-            FOOD_DATABASE.remove(food);
-            return true;
+//    public static boolean removeFood(int id) {
+//        Food food = FOOD_DATABASE.get(id);
+//        if (food != null) {
+//            FOOD_DATABASE.remove(food);
+//            return true;
+//        }
+//        return false;
+//    }
+    public static boolean removeFood(int id)
+    {
+        for(Food food : FOOD_DATABASE)
+        {
+            if(food.getId() == id)
+            {
+                FOOD_DATABASE.remove(food);
+                return true;
+            }
         }
         return false;
     }

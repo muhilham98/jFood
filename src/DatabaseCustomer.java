@@ -27,29 +27,29 @@ public class DatabaseCustomer {
         return lastId;
     }
 
-    public static Customer getCustomerById(int id) {
-        Customer customer = CUSTOMER_DATABASE.get(id);
-        if (customer != null) {
-            return customer;
+    public static Customer getCustomerById(int id)
+    {
+        for (Customer customers : CUSTOMER_DATABASE)
+        {
+            if (customers.getId() == id)
+            {
+                return customers;
+            }
         }
         return null;
     }
 
     public static boolean addCustomer(Customer customer) {
-        // initialise instance variables
-        boolean sameEmail= false;
-        for (Customer i : CUSTOMER_DATABASE) {
-            if (customer.getEmail() == i.getEmail()) {
-                sameEmail = true;
+        for (Customer i : CUSTOMER_DATABASE)
+        {
+            if(i.getEmail().equals(customer.getEmail()))
+            {
+                return false;
             }
         }
-
-        if (!sameEmail) {
-            CUSTOMER_DATABASE.add(customer);
-            lastId = customer.getId();
-            return true;
-        }
-        return false;
+        CUSTOMER_DATABASE.add(customer);
+        lastId = customer.getId();
+        return true;
     }
 
     /**
@@ -61,10 +61,13 @@ public class DatabaseCustomer {
      */
     public static boolean removeCustomer(int id) {
         // put your code here
-        Customer customer = CUSTOMER_DATABASE.get(id);
-        if (customer != null) {
-            CUSTOMER_DATABASE.remove(customer);
-            return true;
+        for(Customer customer : CUSTOMER_DATABASE)
+        {
+            if(customer.getId() == id)
+            {
+                CUSTOMER_DATABASE.remove(customer);
+                return true;
+            }
         }
         return false;
     }
