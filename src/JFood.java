@@ -325,33 +325,74 @@ public class JFood extends Thread
             System.out.println(a.getMessage());
         }
 
-        System.out.println("\n=====Multithreading======");
+//        System.out.println("\n=====Multithreading======");
+//        try {
+//            Invoice invoice1 = new CashInvoice(DatabaseInvoice.getLastId() + 1, listPertama, DatabaseCustomer.getCustomerById(1), 1000);
+//            DatabaseInvoice.addInvoice(invoice1);
+//        } catch (CustomerNotFoundException a) {
+//            System.out.println(a.getMessage());
+//        }
+//
+//        try {
+//            Invoice invoice2 = new CashInvoice(DatabaseInvoice.getLastId()+1, listKedua, DatabaseCustomer.getCustomerById(2), 2000);
+//            DatabaseInvoice.addInvoice(invoice2);
+//        } catch (CustomerNotFoundException a) {
+//            System.out.println(a.getMessage());
+//        }
+//
+//        try {
+//            Invoice invoice3 = new CashInvoice(DatabaseInvoice.getLastId()+1, listKetiga, DatabaseCustomer.getCustomerById(3), 3000);
+//            DatabaseInvoice.addInvoice(invoice3);
+//        } catch (CustomerNotFoundException a) {
+//            System.out.println(a.getMessage());
+//        }
+//
+//        for(Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
+//        {
+//            PriceCalculator priceCalculator = new PriceCalculator(invoice);
+//            Thread thread = new Thread(priceCalculator);
+//            thread.start();
+//        }
+
+        System.out.println("\n=====POST TEST==================");
+
         try {
             Invoice invoice1 = new CashInvoice(DatabaseInvoice.getLastId() + 1, listPertama, DatabaseCustomer.getCustomerById(1), 1000);
             DatabaseInvoice.addInvoice(invoice1);
         } catch (CustomerNotFoundException a) {
             System.out.println(a.getMessage());
+        } catch (OngoingInvoiceAlreadyExistsException a){
+            System.out.println(a.getMessage());
         }
 
         try {
-            Invoice invoice2 = new CashInvoice(DatabaseInvoice.getLastId()+1, listKedua, DatabaseCustomer.getCustomerById(2), 2000);
+            Invoice invoice2 = new CashInvoice(DatabaseInvoice.getLastId() + 1, listPertama, DatabaseCustomer.getCustomerById(1), 1000);
             DatabaseInvoice.addInvoice(invoice2);
         } catch (CustomerNotFoundException a) {
             System.out.println(a.getMessage());
-        }
-
-        try {
-            Invoice invoice3 = new CashInvoice(DatabaseInvoice.getLastId()+1, listKetiga, DatabaseCustomer.getCustomerById(3), 3000);
-            DatabaseInvoice.addInvoice(invoice3);
-        } catch (CustomerNotFoundException a) {
+        } catch (OngoingInvoiceAlreadyExistsException a){
             System.out.println(a.getMessage());
         }
 
-        for(Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
-        {
-            PriceCalculator priceCalculator = new PriceCalculator(invoice);
-            Thread thread = new Thread(priceCalculator);
-            thread.start();
+        try {
+            Invoice invoice2 = new CashInvoice(DatabaseInvoice.getLastId() + 1, listPertama, DatabaseCustomer.getCustomerById(1), 1000);
+            DatabaseInvoice.addInvoice(invoice2);
+        } catch (CustomerNotFoundException a) {
+            System.out.println(a.getMessage());
+        } catch (OngoingInvoiceAlreadyExistsException a){
+            System.out.println(a.getMessage());
+        }
+
+        try {
+            DatabaseInvoice.getInvoiceById(3);
+        } catch (InvoiceNotFoundException a){
+            System.out.println(a.getMessage());
+        }
+
+        try {
+            DatabaseInvoice.getInvoiceById(2);
+        } catch (InvoiceNotFoundException a){
+            System.out.println(a.getMessage());
         }
 
     }
