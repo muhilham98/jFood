@@ -1,13 +1,15 @@
 public class PriceCalculator implements Runnable{
-    Invoice a;
+    private Invoice invoice;
 
-    PriceCalculator(Invoice a){
-        this.a = a;
+    PriceCalculator(Invoice invoice)
+    {
+        this.invoice = invoice;
     }
     public void run()
     {
-        System.out.println("calculating invoice id: " + a.getId());
-        a.setTotalPrice();
-        System.out.println("finish calculating invoice id: " + a.getId());
+        System.out.println("calculating invoice id: " + invoice.getId());
+        invoice.setTotalPrice();
+        System.out.println("finish calculating invoice id: " + invoice.getId());
     }
+
 }

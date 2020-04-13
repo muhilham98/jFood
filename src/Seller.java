@@ -29,6 +29,7 @@ public class Seller
     {
         this.id = id;
         this.name = name;
+        this.phoneNumber=phoneNumber;
         this.email = email;
         this.location = location;
     }
@@ -134,6 +135,6 @@ public class Seller
     
     public String toString()
     {
-        return "SELLER\nId: "+id+"\nName: "+name+"\nPhoneNumber: "+phoneNumber+"\nLocation: "+location;    
+        return "SELLER\nId: "+id+"\nName: "+name+"\nPhoneNumber: "+phoneNumber+"\nLocation: "+location;
     }
 }
