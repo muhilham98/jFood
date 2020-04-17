@@ -24,7 +24,8 @@ public class PromoController
     public Promo addPromo(@RequestParam(value = "code") String code,
                           @RequestParam(value = "discount") int discount,
                           @RequestParam(value = "minPrice") int minPrice,
-                          @RequestParam(value = "active") boolean active) {
+                          @RequestParam(value = "active") boolean active)
+    {
         try {
             if (DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId() + 1, code, discount, minPrice, active))) {
                 Promo promo = null;

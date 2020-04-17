@@ -32,9 +32,7 @@ public class SellerController
                             @RequestParam(value = "phoneNumber")String phoneNumber,
                             @RequestParam(value = "province") String province,
                             @RequestParam(value = "description")String description,
-                            @RequestParam(value = "city")String city
-
-    )
+                            @RequestParam(value = "city")String city )
     {
         Location loc1 = new Location(city, province, description);
         Seller seller = new Seller(DatabaseSeller.getLastId()+1, name, email, phoneNumber, loc1);

@@ -14,7 +14,8 @@ public class FoodController
     }
 
     @RequestMapping(value = "/food/{id}", method = RequestMethod.GET)
-    public Food getFoodById(@PathVariable int id) {
+    public Food getFoodById(@PathVariable int id)
+    {
         Food food= null;
         try {
             food = DatabaseFood.getFoodById(id);
@@ -26,14 +27,9 @@ public class FoodController
     }
 
     @RequestMapping(value = "/food/seller/{sellerId}", method = RequestMethod.GET)
-    public ArrayList<Food> getFoodBySeller(@PathVariable int sellerId) {
-        ArrayList<Food> food = null;
-        try {
-            food = DatabaseFood.getFoodBySeller(sellerId);
-        } catch (SellerNotFoundException e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
+    public ArrayList<Food> getFoodBySeller(@PathVariable int sellerId)
+    {
+        ArrayList<Food> food = DatabaseFood.getFoodBySeller(sellerId);
         return food;
     }
 
@@ -48,11 +44,15 @@ public class FoodController
     public Food addFood(@RequestParam(value = "name") String name,
                         @RequestParam(value = "price")int price,
                         @RequestParam(value = "category")FoodCategory category,
-                        @RequestParam(value = "seller ID")int sellerId ) throws SellerNotFoundException
+                        @RequestParam(value = "sellerId")int sellerId )
     {
-        Food food = new Food(DatabaseFood.getLastId()+1, name,DatabaseSeller.getSellerById(sellerId),price,category);
+        Food food = null;
+        try{
+            food = new Food(DatabaseFood.getLastId()+1, name,DatabaseSeller.getSellerById(sellerId),price,category);
+        }catch(SellerNotFoundException e){
+            System.out.println(e.getMessage());
+        }
         DatabaseFood.addFood(food);
         return food;
-
     }
 }
