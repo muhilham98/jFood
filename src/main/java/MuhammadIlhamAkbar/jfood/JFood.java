@@ -49,7 +49,8 @@ public class JFood {
         } catch (PromoCodeAlreadyExistsException a) {
             System.out.println(a.getMessage());
         }
-        SpringApplication.run(JFood.class, args);
+
+
         
     }
 

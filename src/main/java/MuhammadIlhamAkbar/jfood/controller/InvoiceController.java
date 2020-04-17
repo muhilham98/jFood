@@ -76,16 +76,28 @@ public class InvoiceController {
             try {
                 foodList.add(DatabaseFood.getFoodById(i));
             } catch (FoodNotFoundException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
         return null;
     }
 
     @RequestMapping(value = "invoice/createCashlessInvoice", method = RequestMethod.POST)
-    public Invoice addCashlessInvoice(@RequestParam(value = "foodIdList") ArrayList<Integer> foodIdList,
+    public Invoice addCashlessInvoice(@RequestParam(value = "foodIdList") ArrayList<Integer> foodId,
                                       @RequestParam(value = "customerId") int customerId,
-                                      @RequestParam(value = "promoCode") String promoCode){}
+                                      @RequestParam(value = "promoCode") String promoCode)
+    {
+        ArrayList<Food> foodList = new ArrayList<>();
+        Customer customer = null;
+        for (Integer i: foodId) {
+            try {
+                foodList.add(DatabaseFood.getFoodById(i));
+            } catch (FoodNotFoundException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return null;
+    }
 
 
 //    @RequestMapping(value = "/cashinvoice", method = RequestMethod.POST)
