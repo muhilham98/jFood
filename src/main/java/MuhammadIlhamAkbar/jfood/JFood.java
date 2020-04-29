@@ -30,12 +30,12 @@ public class JFood {
             System.out.println(a.getMessage());
         }
         try {
-            DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Kopi hitam", DatabaseSeller.getSellerById(2), 10000, FoodCategory.COFFEE));
+            DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Mochacino", DatabaseSeller.getSellerById(2), 12000, FoodCategory.COFFEE));
         }catch (SellerNotFoundException a) {
             System.out.println(a.getMessage());
         }
         try {
-            DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Kopi hitam", DatabaseSeller.getSellerById(3), 10000, FoodCategory.COFFEE));
+            DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Latte", DatabaseSeller.getSellerById(3), 13000, FoodCategory.COFFEE));
         }catch (SellerNotFoundException a) {
             System.out.println(a.getMessage());
         }
@@ -49,8 +49,40 @@ public class JFood {
         } catch (PromoCodeAlreadyExistsException a) {
             System.out.println(a.getMessage());
         }
+      //  System.out.println(lokasi1);
+       // System.out.println(lokasi2);
 
+//        ArrayList<Food> listPertama = new ArrayList<Food>();
+//        listPertama.add(DatabaseFood.getFoodById(1));
+//
+//        ArrayList<Food> listKedua = new ArrayList<Food>();
+//        listKedua.add(DatabaseFood.getFoodById(2));
+//        try
+//        {
+//            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, listKedua, DatabaseCustomer.getCustomerById(1), 5000));
+//        }
+//        catch (CustomerNotFoundException a)
+//        {
+//            System.out.println(a.getMessage());
+//        }
+//        catch (InvoiceNotFoundException a)
+//        {
+//            System.out.println(a.getMessage());
+//        }
+//        try
+//        {
+//            DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, listPertama, DatabaseCustomer.getCustomerById(1), DatabasePromo.getPromoById(1)));
+//        }
+//        catch (PromoNotFoundException a)
+//        {
+//            System.out.println(a.getMessage());
+//        }
+//        catch (InvoiceNotFoundException a)
+//        {
+//            System.out.println(a.getMessage());
+//        }
 
+       SpringApplication.run(JFood.class, args);
         
     }
 
