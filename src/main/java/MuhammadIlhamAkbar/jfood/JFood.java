@@ -19,74 +19,62 @@ public class JFood {
 
     public static void main(String[] args) {
         Location lokasi1 = new Location("Kebumen","Jateng", "Indonesia");
-        Location lokasi2 = new Location("Curup","Bengkulu", "Indonesia");
-        Location lokasi3 = new Location("Bantul","Jogja", "Indonesia");
         DatabaseSeller.addSeller(new Seller (DatabaseSeller.getLastId() + 1, "ilham", "ilham@gmail.com","085803", lokasi1));
-        DatabaseSeller.addSeller(new Seller (DatabaseSeller.getLastId() + 1, "akbar", "akbar@gmail.com","085803", lokasi2));
-        DatabaseSeller.addSeller(new Seller (DatabaseSeller.getLastId() + 1, "wafid", "wafid@gmail.com","085803", lokasi3));
         try {
             DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Kopi hitam", DatabaseSeller.getSellerById(1), 10000, FoodCategory.COFFEE));
         }catch (SellerNotFoundException a) {
             System.out.println(a.getMessage());
         }
         try {
-            DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Mochacino", DatabaseSeller.getSellerById(2), 12000, FoodCategory.COFFEE));
+            DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Mochacino", DatabaseSeller.getSellerById(1), 12000, FoodCategory.COFFEE));
         }catch (SellerNotFoundException a) {
             System.out.println(a.getMessage());
         }
-        try {
-            DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Latte", DatabaseSeller.getSellerById(3), 13000, FoodCategory.COFFEE));
-        }catch (SellerNotFoundException a) {
-            System.out.println(a.getMessage());
-        }
-        try {
-            DatabasePromo.addPromo((new Promo(DatabasePromo.getLastId()+1, "123", 2000, 3000, true)));
-        } catch (PromoCodeAlreadyExistsException a) {
-            System.out.println(a.getMessage());
-        }
-        try {
-            DatabasePromo.addPromo((new Promo(DatabasePromo.getLastId()+1, "456", 2300, 4000, true)));
-        } catch (PromoCodeAlreadyExistsException a) {
-            System.out.println(a.getMessage());
-        }
-      //  System.out.println(lokasi1);
-       // System.out.println(lokasi2);
 
-//        ArrayList<Food> listPertama = new ArrayList<Food>();
-//        listPertama.add(DatabaseFood.getFoodById(1));
-//
-//        ArrayList<Food> listKedua = new ArrayList<Food>();
-//        listKedua.add(DatabaseFood.getFoodById(2));
-//        try
-//        {
-//            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, listKedua, DatabaseCustomer.getCustomerById(1), 5000));
-//        }
-//        catch (CustomerNotFoundException a)
-//        {
-//            System.out.println(a.getMessage());
-//        }
-//        catch (InvoiceNotFoundException a)
-//        {
-//            System.out.println(a.getMessage());
-//        }
-//        try
-//        {
-//            DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, listPertama, DatabaseCustomer.getCustomerById(1), DatabasePromo.getPromoById(1)));
-//        }
-//        catch (PromoNotFoundException a)
-//        {
-//            System.out.println(a.getMessage());
-//        }
-//        catch (InvoiceNotFoundException a)
-//        {
-//            System.out.println(a.getMessage());
-//        }
-
-       SpringApplication.run(JFood.class, args);
+        SpringApplication.run(JFood.class, args);
         
     }
 
 }
+
+
+//===========================modul post test 9=================================
+//Location lokasi1 = new Location("Kebumen","Jateng", "Indonesia");
+//    Location lokasi2 = new Location("Curup","Bengkulu", "Indonesia");
+//    Location lokasi3 = new Location("Bantul","Jogja", "Indonesia");
+//        DatabaseSeller.addSeller(new Seller (DatabaseSeller.getLastId() + 1, "ilham", "ilham@gmail.com","085803", lokasi1));
+//                DatabaseSeller.addSeller(new Seller (DatabaseSeller.getLastId() + 1, "akbar", "akbar@gmail.com","085803", lokasi2));
+//                DatabaseSeller.addSeller(new Seller (DatabaseSeller.getLastId() + 1, "wafid", "wafid@gmail.com","085803", lokasi3));
+//                try {
+//                DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Kopi hitam", DatabaseSeller.getSellerById(1), 10000, FoodCategory.COFFEE));
+//                }catch (SellerNotFoundException a) {
+//                System.out.println(a.getMessage());
+//                }
+//                try {
+//                DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Mochacino", DatabaseSeller.getSellerById(2), 12000, FoodCategory.COFFEE));
+//                }catch (SellerNotFoundException a) {
+//                System.out.println(a.getMessage());
+//                }
+//                try {
+//                DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Latte", DatabaseSeller.getSellerById(3), 13000, FoodCategory.COFFEE));
+//                }catch (SellerNotFoundException a) {
+//                System.out.println(a.getMessage());
+//                }
+//                try {
+//                DatabasePromo.addPromo((new Promo(DatabasePromo.getLastId()+1, "123", 2000, 3000, true)));
+//                } catch (PromoCodeAlreadyExistsException a) {
+//                System.out.println(a.getMessage());
+//                }
+//                try {
+//                DatabasePromo.addPromo((new Promo(DatabasePromo.getLastId()+1, "456", 2300, 4000, true)));
+//                } catch (PromoCodeAlreadyExistsException a) {
+//                System.out.println(a.getMessage());
+//                }
+
+
+
+
+
 
 //public class JFood extends Thread
 //{
