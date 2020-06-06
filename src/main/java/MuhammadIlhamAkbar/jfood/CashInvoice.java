@@ -1,14 +1,15 @@
 package MuhammadIlhamAkbar.jfood;
 import java.util.Calendar;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Write a description of class CashInvoice here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * <h1>JFood Program based on Object Oriented Programming<h1>
+ * This CashInvoice Class is used to precessing invoice data if customer use cash for purchases.
+ * Cashinvoice is subclass of an Invoice class.
+ * <p>
+ * @author Muhammad Ilham Akbar
+ * @version 2020-06-06
  */
 public class CashInvoice extends Invoice
 {
@@ -17,7 +18,12 @@ public class CashInvoice extends Invoice
     private int deliveryFee;
 
     /**
-     * Constructor for objects of class CashInvoice
+     * Constructor for objects of class CashInvoice.
+     * this method is used to make cash invoice.
+     * @param id, this is the first parameter of this method that shows invoice's id.
+     * @param foods, this is the second parameter of this method that shows list of food.
+     * @param customer,  this is the third parameter of this method that shwos about invoice's customer.
+     * super keyword for passing parameter that required by Invoice class
      */
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
@@ -25,33 +31,71 @@ public class CashInvoice extends Invoice
         super (id, foods, customer);
     }
 
+
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Constructor for objects of class CashInvoice.
+     * this method is used to make cash invoice.
+     * @param id, this is the first parameter of this method that shows invoice's id.
+     * @param foods, this is the second parameter of this method that shows list of food.
+     * @param customer,  this is the third parameter of this method that shwos about invoice's customer.
+     * @param deliveryFee, this is the fourth parameter of this method that shows price of delivery fee.
+     * super keyword for passing parameter that required by Invoice class
      */
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer,int deliveryFee)
     {
         super (id, foods, customer);
         this.deliveryFee = deliveryFee;
     }
-    
+
+    /**
+     * Constructor for objects of class CashInvoice.
+     * this method is used to make cash invoice.
+     * @param id, this is the first parameter of this method that shows invoice's id.
+     * @param foods, this is the second parameter of this method that shows list of food.
+     * @param customer,  this is the third parameter of this method that shwos about invoice's customer.
+     * @param deliveryFee, this is the fourth parameter of this method that shows price of delivery fee.
+     * @param invoiceStatus, this is the fifth parameter of this method that shows invoice's id.
+     * @param date, this is the sixth parameter of this method that shows date of invoice created.
+     * @param totalPrice, this is the seventh parameter of this method that shows total price.
+     * super keyword for passing parameter that required by Invoice class
+     */
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer, int deliveryFee, InvoiceStatus invoiceStatus, Date date, int totalPrice)
+    {
+        // initialise instance variables
+        super (id, foods, customer, invoiceStatus, date, totalPrice);
+        this.deliveryFee = deliveryFee;
+    }
+
+    /**
+     * This is getPaymentType method that used to return type of payment.
+     * @return PAYMENT_TYPE, return type of payment.
+     */
     public PaymentType getPaymentType()
     {
          return PAYMENT_TYPE;
     }
-    
+
+    /**
+     * This is getDeliveryFee method that used to return value/price of delivery fee.
+     * @return deliveryFee, return value of deliveryFee.
+     */
     public int getDeliveryFee()
     {
         return deliveryFee;
     }
-    
+
+    /**
+     * This is setDeliveryFee method that used to set value/price of delivery fee.
+     * @param deliveryFee, to set value of deliveryFee.
+     */
     public void setDeliveryFee(int deliveryFee)
     {
         this.deliveryFee = deliveryFee;
     }
-    
+
+    /**
+     * This is setTotalPrice method that used to calculate price of food that purchased.
+     */
      public void setTotalPrice()
     {
         int foodPrice=0;
@@ -61,11 +105,14 @@ public class CashInvoice extends Invoice
         if(deliveryFee>0)
         {
             super.totalPrice=foodPrice+deliveryFee;
+        } else {
+            super.totalPrice=foodPrice;
         }
-        else super.totalPrice=foodPrice;
     }
 
-
+    /**
+     * This is toString method that used to print value of instance variable.
+     */
     public String toString() {
         String food = " ";
         for (int i = 0; i < getFoods().size(); i++){
@@ -87,42 +134,5 @@ public class CashInvoice extends Invoice
                 "\nPayment Type :" + PAYMENT_TYPE;
         return b;
     }
-    
-//    public String toString()
-//    {
-//        String string="";
-//        Date date = super.getDate().getTime();
-//        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-//        String date1 = format1.format(date);
-//        if(deliveryFee>0)
-//        {
-//            string= "ID: "+super.getId()+
-//                            "\nFood: "+super.getFoods()+
-//                            "\nDate: "+date1+
-//                            "\nCustomer: "+super.getCustomer().getName()+
-//                            "\nDelivery Fee: "+deliveryFee+
-//                            "\nTotal Price: "+super.totalPrice+
-//                            "\nStatus: "+super.getInvoiceStatus()+
-//                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
-//
-//            System.out.println(string);
-//        }
-//        else
-//        {
-//            string= "ID: "+super.getId()+
-//                            "\nFoods: "+super.getFoods()+
-//                            "\nDate: "+date1+
-//                            "\nCustomer: "+super.getCustomer().getName()+
-//                            "\nDelivery Fee: 0"+
-//                            "\nTotal Price: "+super.totalPrice+
-//                            "\nStatus: "+super.getInvoiceStatus()+
-//                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
-//
-//            System.out.println(string);
-//        }
-//        return string;
-//
-//    }
-    
     
 }

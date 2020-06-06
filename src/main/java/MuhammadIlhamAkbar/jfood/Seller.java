@@ -4,7 +4,7 @@ package MuhammadIlhamAkbar.jfood;
  * This Seller Class used to precessing seller data
  * <p>
  * @author Muhammad Ilham Akbar
- * @version 2020-02-27
+ * @version 2020-06-06
  */
 public class Seller
 {
@@ -36,17 +36,16 @@ public class Seller
 
     /**
      * This is getId method that used to return id value
-     * @return id, return seller id value
+     * @return id, return id of seller
      */
     public int getId()
     {
-        // put your code here
         return id;
     }
     
     /**
      * This is getName method that used to return name value
-     * @return name, return seller name value
+     * @return name, return seller's name
      */
     public String getName()
     {
@@ -55,7 +54,7 @@ public class Seller
     
     /**
      * This is getEmail method that used to return email value
-     * @return email, return seller email value
+     * @return email, return email of seller
      */
     public String getEmail()
     {
@@ -64,7 +63,7 @@ public class Seller
     
     /**
      * This is getPhoneNumber method that used to return phoneNumber value
-     * @return phoneNumber, return seller phonenumber value 
+     * @return phoneNumber, return value of seller phone number
      */
     public String getPhoneNumber()
     {
@@ -73,7 +72,7 @@ public class Seller
     
     /**
      * This is getLocation method that used to return location value
-     * @return location, return seller location value
+     * @return location, return location of seller
      */
     public Location getLocation()
     {
@@ -82,16 +81,16 @@ public class Seller
     
     /**
      * This is setId method that used to set id value, that id is instance variable
-     * @param id, set seller id value
+     * @param id, set value of seller id
      */
-    public void setId(int Id)
+    public void setId(int id)
     {
-        this.id = Id;
+        this.id = id;
     }
     
     /**
      * This is setName method that used to set name value, that name is instance variable
-     * @param name, set seller name value
+     * @param name, set seller's name
      */
     public void setName(String name)
     {
@@ -100,7 +99,7 @@ public class Seller
     
     /**
      * This is setDate method that used to set email value, that email is instance variable
-     * @param email, set email name value
+     * @param email, set name of email
      */
     public void setEmail(String email)
     {
@@ -109,7 +108,7 @@ public class Seller
     
     /**
      * This is setPhoneNumber method that used to set phoneNumber value, that phoneNumber is instance variable
-     * @param phoneNumber, set seller phone number
+     * @param phoneNumber, set seller's phone number
      */
     public void setPhoneNumber(String phoneNumber)
     {
@@ -118,7 +117,7 @@ public class Seller
     
     /**
      * This is setLocation method that used to set location value, that location is instance variable
-     * @param location, set seller lpcation
+     * @param location, set seller location
      */
     public void setLocation (Location location)
     {
@@ -132,7 +131,10 @@ public class Seller
     {
         System.out.println(getName());
     }
-    
+
+    /**
+     * This is toString method that is used to print data about seller object in String
+     */
     public String toString()
     {
         return "SELLER\nId: "+id+"\nName: "+name+"\nPhoneNumber: "+phoneNumber+"\nLocation: "+location;

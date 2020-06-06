@@ -4,7 +4,7 @@ package MuhammadIlhamAkbar.jfood;
  * This Location Class used to precessing location data
  * <p>
  * @author Muhammad Ilham Akbar
- * @version 2020-02-27
+ * @version 2020-06-06
  */
 public class Location
 {
@@ -30,17 +30,16 @@ public class Location
     }
 
     /**
-     * This is getProvince method that used to return id value
+     * This is getProvince method that is used to return id value
      * @return province, return province location
      */
     public String getProvince()
     {
-        // put your code here
         return province;
     }
     
     /**
-     * This is getCity method that used to return city value
+     * This is getCity method that is used to return city value
      * @return city, return city location
      */
     public String getCity()
@@ -49,7 +48,7 @@ public class Location
     }
     
     /**
-     * This is getDescription method that used to return description value
+     * This is getDescription method that is used to return description value
      * @return description, return location description
      */
     public String getDescription()
@@ -58,7 +57,7 @@ public class Location
     }
     
     /**
-     * This is setProvince method that used to set province value, that province is instance variable
+     * This is setProvince method that is used to set province value, that province is instance variable
      * @param province, set province location in string
      */
     public void setProvince(String province)
@@ -67,7 +66,7 @@ public class Location
     }
     
     /**
-     * This is setCity method that used to set city value, that city is instance variable
+     * This is setCity method that is used to set city value, that city is instance variable
      * @param city, set city location in stirng
      */
     public void setCity(String city)
@@ -76,7 +75,7 @@ public class Location
     }
     
     /**
-     * This is printData method that used to print getProvince()
+     * This is toString method that is used to print location object in string
      */
     public String toString()
     {

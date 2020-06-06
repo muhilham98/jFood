@@ -4,10 +4,10 @@ import java.util.regex.*;
 import java.text.SimpleDateFormat;
 /**
  * <h1>JFood Program based on Object Oriented Programming<h1>
- * This Costumer Class used to precessing costumer data
+ * This Costumer Class is used to precessing costumer data
  * <p>
  * @author Muhammad Ilham Akbar
- * @version 2020-02-27
+ * @version 2020-06-06
  */
 public class Customer
 {
@@ -26,7 +26,7 @@ public class Customer
      * @param name - second parameter value of constructor, which becomes costumer name
      * @param email - third parameter value of constructor, which becomes costumer email 
      * @param password - fourth parameter value of constructor, which becomes costumer password
-     * @param joinDate - fifth paramter value of constructor, display costumer join date
+     * @param joinDate - fifth parameter value of constructor, shows costumer join date
      */
     public Customer(int id, String name, String email, String password, Calendar joinDate)
     {
@@ -38,7 +38,19 @@ public class Customer
         setPassword(password);
         setEmail(email);
     }
-    
+
+    /**
+     * This is constructor for object of class Customer
+     * <p>
+     * Updates or changes id, name, email, password, year, month, and dayOfMonth when create objects
+     * @param id - first parameter value of constructor, which becomes Costumer identifier
+     * @param name - second parameter value of constructor, which becomes costumer name
+     * @param email - third parameter value of constructor, which becomes costumer email
+     * @param password - fourth parameter value of constructor, which becomes costumer password
+     * @param year - fifth parameter value of constructor, shows costumer join year
+     * @param month - sixth parameter value of constructor, shows costumer join month
+     * @param dayOfMonth - seventh parameter value of constructor, shows costumer join day
+     */
     public Customer(int id, String name, String email, String password, int year, int month, int dayOfMonth)
     {
         this.id = id;
@@ -50,7 +62,16 @@ public class Customer
         setEmail(email);
         
     }
-    
+
+    /**
+     * This is constructor for object of class Customer
+     * <p>
+     * Updates or changes id, name, email, and password when create objects
+     * @param id - first parameter value of constructor, which becomes Costumer identifier
+     * @param name - second parameter value of constructor, which becomes costumer name
+     * @param email - third parameter value of constructor, which becomes costumer email
+     * @param password - fourth parameter value of constructor, which becomes costumer password
+     */
     public Customer (int id, String name, String email, String password)
     {
         this.id = id;
@@ -62,9 +83,10 @@ public class Customer
         setEmail(email);
     }
 
+
     /**
-     * This is getId method that used to return id value
-     * @return id, return costumer id value
+     * This is getId method that is used to return id value
+     * @return id, return value of customer id
      */
     public int getId()
     {
@@ -72,8 +94,8 @@ public class Customer
     }
     
      /**
-     * This is getName method that used to return name value
-     * @return name, return costumer name value
+     * This is getName method is that used to return name value
+     * @return name, return costumer's name
      */
     public String getName()
     {
@@ -81,8 +103,8 @@ public class Customer
     }
     
     /**
-     * This is getEMail method that used to return email value
-     * @return email, return costumer email value
+     * This is getEMail method that is used to return email value
+     * @return email, return costumer's email
      */
     public String getEmail()
     {
@@ -90,8 +112,8 @@ public class Customer
     }
     
     /**
-     * This is getPassword method that used to return password value
-     * @return password, return costumer password value
+     * This is getPassword method that is used to return password value
+     * @return password, return value of costumer password
      */
     public String getPassword()
     {
@@ -99,17 +121,18 @@ public class Customer
     }
     
     /**
-     * This is getJoinDtae method that used to return joinDate value
-     * @return joinDate, return join date value
+     * This is getJoinDtae method that is used to return joinDate value
+     * @return joinDate, return value of custoemr join date
      */
     public Calendar getJoinDate()
     {
         return joinDate;
     }
+
     
     /**
-     * This is setId method that used to set id value, that id is instance variable
-     * @param id, set id value in integer
+     * This is setId method that is used to set id value, that id is instance variable
+     * @param id, set value of id in integer
      */
     public void setId(int id)
     {
@@ -117,8 +140,8 @@ public class Customer
     }
     
     /**
-     * This is setName method that used to set name value, that name is instance variable
-     * @param name, set name value in string
+     * This is setName method that is used to set name value, that name is instance variable
+     * @param name, set value of name in string
      */
     public void setName(String name)
     {
@@ -126,8 +149,8 @@ public class Customer
     }
     
     /**
-     * This is setEmail method that used to set email value, that email is instance variable
-     * @param email, set email value in string
+     * This is setEmail method that is used to set email value, that email is instance variable
+     * @param email, set value of email in string
      */
     public void setEmail(String email)
     {
@@ -145,8 +168,8 @@ public class Customer
     }
     
     /**
-     * This is setPassword method that used to set password value, that password is instance variable
-     * @param password, set password value in string
+     * This is setPassword method that is used to set password value, that password is instance variable
+     * @param password, set value of password in string
      */
     public void setPassword(String password)
     {
@@ -161,22 +184,28 @@ public class Customer
     }
     
     /**
-     * This is setJoinDate method that used to set password value, that password is instance variable
-     * @param joinDate, set join date value in string
+     * This is setJoinDate method that is used to set password value, that password is instance variable
+     * @param joinDate, set customer join date in string
      */
     public void setJoinDate(Calendar joinDate)
     {
         this.joinDate = joinDate;
     }
-    
+
+    /**
+     * This is setJoinDate method that is used to set password value, that password is instance variable
+     * @param year, set year value in integer
+     * @param month, set month value in integer
+     * @param dayOfMonth, set day value in integer
+     */
     public void setJoinDate (int year, int month, int dayOfMonth)
     {
         this.joinDate = new GregorianCalendar (year, month-1, dayOfMonth);
     }
+
     /**
-     * This is printData method that used to print getName()
+     * This is toString method that is used to print information about customer.
      */
-    
     public String toString()
     {
         String print;

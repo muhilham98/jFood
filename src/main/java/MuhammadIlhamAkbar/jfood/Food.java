@@ -4,11 +4,10 @@ package MuhammadIlhamAkbar.jfood;
  * This Food Class used to precessing food data
  * <p>
  * @author Muhammad Ilham Akbar
- * @version 2020-02-27
+ * @version 2020-06-06
  */
 public class Food
 {
-    // Instance variables in Food Class
     private int id; // Food id
     private String name; // Food name 
     private Seller seller; // who is seller
@@ -23,7 +22,7 @@ public class Food
      * @param name - second parameter value of constructor, which becomes food name
      * @param seller - third parameter value of constructor, which becomes food seller
      * @param price - fourth parameter value of constructor, which becomes food price
-     * @param category - fifth parameter value of constructor, where is food category
+     * @param category - fifth parameter value of constructor, that shows about food category
      */
     public Food(int id, String name, Seller seller, int price, FoodCategory category)
     {
@@ -36,7 +35,7 @@ public class Food
 
 
     /**
-     * This is getId method that used to return id value
+     * This is getId method that is used to return id value
      * @return id, return food id value
      */
     public int getId()
@@ -45,7 +44,7 @@ public class Food
     }
     
     /**
-     * This is getName method that used to return name value
+     * This is getName method that is used to return name value
      * @return name, return name value
      */
     public String getName()
@@ -54,7 +53,7 @@ public class Food
     }
     
     /**
-     * This is getSeller method that used to return seller value
+     * This is getSeller method that is used to return seller value
      * @return seller, return seller value
      */
     public Seller getSeller ()
@@ -63,7 +62,7 @@ public class Food
     }
     
     /**
-     * This is getPrice method that used to return price value
+     * This is getPrice method that is used to return price value
      * @return price, return food price value
      */
     public int getPrice()
@@ -72,7 +71,7 @@ public class Food
     }
     
     /**
-     * This is getCategory method that used to return category value
+     * This is getCategory method that is used to return category value
      * @return category, return category value
      */
     public FoodCategory getCategory()
@@ -81,16 +80,16 @@ public class Food
     }
     
     /**
-     * This is setId method that used to set id value, that id is instance variable
-     * @param , set id value in integer
+     * This is setId method that is used to set id value, that id is instance variable
+     * @param id , set id value in integer
      */
-    public void setId (int Id)
+    public void setId (int id)
     {
-        this.id = Id;
+        this.id = id;
     }
     
     /**
-     * This is setName method that used to set id value, that name is instance variable
+     * This is setName method that is used to set name value, that name is instance variable
      * @param name, set name value in string
      */
     public void setName (String name)
@@ -99,7 +98,7 @@ public class Food
     }
     
     /**
-     * This is setSeller method that used to set seller value, that seller is instance variable
+     * This is setSeller method that is used to set seller value, that seller is instance variable
      * @param seller, set seller value that datatype is seller object
      */
     public void setSeller (Seller seller)
@@ -108,7 +107,7 @@ public class Food
     }
     
     /**
-     * This is setPrice method that used to set price value, that price is instance variable
+     * This is setPrice method that is used to set price value, that price is instance variable
      * @param price, set price value in integer
      */
     public void setPrice (int price)
@@ -117,7 +116,7 @@ public class Food
     }
     
     /**
-     * This is setCategory method that used to set category value, that category is instance variable
+     * This is setCategory method that is used to set category value, that category is instance variable
      * @param category, set category value in string
      */
     public void setCategory (FoodCategory category)
@@ -126,7 +125,7 @@ public class Food
     }
     
     /**
-     * This is printData method that used to print 
+     * This is toString method that is used to print data about food object in string
      */
     public String toString()
     {

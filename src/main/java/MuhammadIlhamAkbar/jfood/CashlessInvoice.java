@@ -1,11 +1,14 @@
 package MuhammadIlhamAkbar.jfood;
-import java.text.SimpleDateFormat;
+
 import java.util.*;
+
 /**
- * Write a description of class CashlessInvoice here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * <h1>JFood Program based on Object Oriented Programming<h1>
+ * This CashlessInvoice Class is used to precessing invoice data if customer use cashless for purchases.
+ * Cashlessinvoice is subclass of an Invoice class.
+ * <p>
+ * @author Muhammad Ilham Akbar
+ * @version 2020-06-06
  */
 public class CashlessInvoice extends Invoice
 {
@@ -14,7 +17,12 @@ public class CashlessInvoice extends Invoice
     private Promo promo;
 
     /**
-     * Constructor for objects of class CashlessInvoice
+     * Constructor for objects of class CashlessInvoice.
+     * this method is used to make cashless invoice.
+     * @param id, this is the first parameter of this method that shows invoice's id.
+     * @param foods, this is the second parameter of this method that shows list of food.
+     * @param customer,  this is the third parameter of this method that shwos about invoice's customer.
+     * super keyword for passing parameter that required by Invoice class
      */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
@@ -23,10 +31,13 @@ public class CashlessInvoice extends Invoice
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  id a sample parameter for a method
-     * @return    the sum of x and y
+     * Constructor for objects of class CashInvoice.
+     * this method is used to make cash invoice.
+     * @param id, this is the first parameter of this method that shows invoice's id.
+     * @param foods, this is the second parameter of this method that shows list of food.
+     * @param customer,  this is the third parameter of this method that shwos about invoice's customer.
+     * @param promo this is the fourth parameter of this method that shows about promo.
+     * super keyword for passing parameter that required by Invoice class
      */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo)
     {
@@ -34,22 +45,55 @@ public class CashlessInvoice extends Invoice
         this.promo = promo;
         
     }
-    
+
+    /**
+     * Constructor for objects of class CashInvoice.
+     * this method is used to make cash invoice.
+     * @param id, this is the first parameter of this method that shows invoice's id.
+     * @param foods, this is the second parameter of this method that shows list of food.
+     * @param customer,  this is the third parameter of this method that shwos about invoice's customer.
+     * @param promo this is the fourth parameter of this method that shows about promo.
+     * @param invoiceStatus, this is the fifth parameter of this method that shows invoice's id.
+     * @param date, this is the sixth parameter of this method that shows date of invoice created.
+     * @param totalPrice, this is the seventh parameter of this method that shows total price.
+     * super keyword for passing parameter that required by Invoice class
+     */
+    public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo, InvoiceStatus invoiceStatus, Date date, int totalPrice)
+    {
+        super(id, foods, customer, invoiceStatus, date, totalPrice);
+        this.promo = promo;
+    }
+
+    /**
+     * This is getPaymentType method that used to return type of payment.
+     * @return PAYMENT_TYPE, return type of payment.
+     */
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
     }
-    
+
+    /**
+     * This is getPromo method that used to return about promo.
+     * @return promo, return about promo.
+     */
     public Promo getPromo()
     {
         return promo;
     }
-    
+
+    /**
+     * This is setPromo method that used to set promo that selected.
+     * @param promo, to set value of deliveryFee.
+     */
     public void setPromo (Promo promo)
     {
         this.promo = promo;
     }
-    
+
+    /**
+     * This is setTotalPrice method that used to calculate price of food that purchased.
+     */
     public void setTotalPrice()
     {
         int totalFoodPrice =0;
@@ -71,6 +115,9 @@ public class CashlessInvoice extends Invoice
         }
     }
 
+    /**
+     * This is toString method that used to print value of instance variable.
+     */
     public String toString()
     {
         String food = " ";
@@ -92,47 +139,6 @@ public class CashlessInvoice extends Invoice
                 "\nPayment Type :" + PAYMENT_TYPE;
         return b;
     }
-    
-//  public String toString()
-//
-//    {
-//        String string="";
-//        Date date = super.getDate().getTime();
-//        SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-//        String date1 = format1.format(date);
-//
-//        int foodPrice=0;
-//        for(int i = 0; i < super.getFoods().size(); i++){
-//            foodPrice+=super.getFoods().get(i).getPrice();
-//        }
-//
-//        if(promo!=null&&promo.getActive()==true&&foodPrice>promo.getMinPrice())
-//        {
-//            string= "ID: "+super.getId()+
-//                            "\nFood: "+super.getFoods()+
-//                            "\nDate: "+date1+
-//                            "\nCustomer: "+super.getCustomer().getName()+
-//                            "\nPromo: "+promo.getCode()+
-//                            "\nTotal Price: "+super.totalPrice+
-//                            "\nStatus: "+super.getInvoiceStatus()+
-//                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
-//
-//            System.out.println(string);
-//        }
-//        else
-//        {
-//            string= "ID: "+super.getId()+
-//                            "\nFood: \n"+super.getFoods()+
-//                            "\nDate: "+date1+
-//                            "\nCustomer: "+super.getCustomer().getName()+
-//                            "\nTotal Price: "+super.totalPrice+
-//                            "\nStatus: "+super.getInvoiceStatus()+
-//                            "\nPaymentType: "+PAYMENT_TYPE+"\n\n";
-//
-//            System.out.println(string);
-//        }
-//        return string;
-//    }
     
     
 }
